@@ -11,7 +11,7 @@ namespace EFFramework
         /// <typeparam name="T">对象类型。</typeparam>
         private sealed class ObjectPool<T> : ObjectPoolBase, IObjectPool<T> where T : ObjectBase
         {
-            private readonly GameFrameworkMultiDictionary<string, Object<T>> _objects;
+            private readonly FrameworkMultiDictionary<string, Object<T>> _objects;
             private readonly Dictionary<object, Object<T>> _objectMap;
             private readonly ReleaseObjectFilterCallback<T> _defaultReleaseObjectFilterCallback;
             private readonly List<T> _cachedCanReleaseObjects;
@@ -35,7 +35,7 @@ namespace EFFramework
             public ObjectPool(string name, bool allowMultiSpawn, float autoReleaseInterval, int capacity, float expireTime, int priority)
                 : base(name)
             {
-                _objects = new GameFrameworkMultiDictionary<string, Object<T>>();
+                _objects = new FrameworkMultiDictionary<string, Object<T>>();
                 _objectMap = new Dictionary<object, Object<T>>();
                 _defaultReleaseObjectFilterCallback = DefaultReleaseObjectFilterCallback;
                 _cachedCanReleaseObjects = new List<T>();
@@ -94,7 +94,7 @@ namespace EFFramework
                 {
                     if (value < 0)
                     {
-                        throw new GameFrameworkException("Capacity is invalid.");
+                        throw new FrameworkException("Capacity is invalid.");
                     }
 
                     if (_capacity == value)
@@ -118,7 +118,7 @@ namespace EFFramework
                 {
                     if (value < 0f)
                     {
-                        throw new GameFrameworkException("ExpireTime is invalid.");
+                        throw new FrameworkException("ExpireTime is invalid.");
                     }
 
                     if (Math.Abs(ExpireTime - value) < 0.01f)
@@ -149,7 +149,7 @@ namespace EFFramework
             {
                 if (obj == null)
                 {
-                    throw new GameFrameworkException("Object is invalid.");
+                    throw new FrameworkException("Object is invalid.");
                 }
 
                 Object<T> internalObject = Object<T>.Create(obj, spawned);
@@ -180,10 +180,10 @@ namespace EFFramework
             {
                 if (name == null)
                 {
-                    throw new GameFrameworkException("Name is invalid.");
+                    throw new FrameworkException("Name is invalid.");
                 }
 
-                GameFrameworkLinkedListRange<Object<T>> objectRange = default(GameFrameworkLinkedListRange<Object<T>>);
+                FrameworkLinkedListRange<Object<T>> objectRange = default(FrameworkLinkedListRange<Object<T>>);
                 if (_objects.TryGetValue(name, out objectRange))
                 {
                     foreach (Object<T> internalObject in objectRange)
@@ -216,10 +216,10 @@ namespace EFFramework
             {
                 if (name == null)
                 {
-                    throw new GameFrameworkException("Name is invalid.");
+                    throw new FrameworkException("Name is invalid.");
                 }
 
-                GameFrameworkLinkedListRange<Object<T>> objectRange = default(GameFrameworkLinkedListRange<Object<T>>);
+                FrameworkLinkedListRange<Object<T>> objectRange = default(FrameworkLinkedListRange<Object<T>>);
                 if (_objects.TryGetValue(name, out objectRange))
                 {
                     foreach (Object<T> internalObject in objectRange)
@@ -242,7 +242,7 @@ namespace EFFramework
             {
                 if (obj == null)
                 {
-                    throw new GameFrameworkException("Object is invalid.");
+                    throw new FrameworkException("Object is invalid.");
                 }
 
                 Unspawn(obj.Target);
@@ -256,7 +256,7 @@ namespace EFFramework
             {
                 if (target == null)
                 {
-                    throw new GameFrameworkException("Target is invalid.");
+                    throw new FrameworkException("Target is invalid.");
                 }
 
                 Object<T> internalObject = GetObject(target);
@@ -270,7 +270,7 @@ namespace EFFramework
                 }
                 else
                 {
-                    throw new GameFrameworkException(Utility.Text.Format(
+                    throw new FrameworkException(Utility.Text.Format(
                         "Can not find target in object pool '{0}', target type is '{1}', target value is '{2}'.", new TypeNamePair(typeof(T), Name),
                         target.GetType().FullName, target));
                 }
@@ -285,7 +285,7 @@ namespace EFFramework
             {
                 if (obj == null)
                 {
-                    throw new GameFrameworkException("Object is invalid.");
+                    throw new FrameworkException("Object is invalid.");
                 }
 
                 SetLocked(obj.Target, locked);
@@ -300,7 +300,7 @@ namespace EFFramework
             {
                 if (target == null)
                 {
-                    throw new GameFrameworkException("Target is invalid.");
+                    throw new FrameworkException("Target is invalid.");
                 }
 
                 Object<T> internalObject = GetObject(target);
@@ -310,7 +310,7 @@ namespace EFFramework
                 }
                 else
                 {
-                    throw new GameFrameworkException(Utility.Text.Format(
+                    throw new FrameworkException(Utility.Text.Format(
                         "Can not find target in object pool '{0}', target type is '{1}', target value is '{2}'.", new TypeNamePair(typeof(T), Name),
                         target.GetType().FullName, target));
                 }
@@ -325,7 +325,7 @@ namespace EFFramework
             {
                 if (obj == null)
                 {
-                    throw new GameFrameworkException("Object is invalid.");
+                    throw new FrameworkException("Object is invalid.");
                 }
 
                 SetPriority(obj.Target, priority);
@@ -340,7 +340,7 @@ namespace EFFramework
             {
                 if (target == null)
                 {
-                    throw new GameFrameworkException("Target is invalid.");
+                    throw new FrameworkException("Target is invalid.");
                 }
 
                 Object<T> internalObject = GetObject(target);
@@ -350,7 +350,7 @@ namespace EFFramework
                 }
                 else
                 {
-                    throw new GameFrameworkException(Utility.Text.Format(
+                    throw new FrameworkException(Utility.Text.Format(
                         "Can not find target in object pool '{0}', target type is '{1}', target value is '{2}'.", new TypeNamePair(typeof(T), Name),
                         target.GetType().FullName, target));
                 }
@@ -365,7 +365,7 @@ namespace EFFramework
             {
                 if (obj == null)
                 {
-                    throw new GameFrameworkException("Object is invalid.");
+                    throw new FrameworkException("Object is invalid.");
                 }
 
                 return ReleaseObject(obj.Target);
@@ -380,7 +380,7 @@ namespace EFFramework
             {
                 if (target == null)
                 {
-                    throw new GameFrameworkException("Target is invalid.");
+                    throw new FrameworkException("Target is invalid.");
                 }
 
                 Object<T> internalObject = GetObject(target);
@@ -437,7 +437,7 @@ namespace EFFramework
             {
                 if (releaseObjectFilterCallback == null)
                 {
-                    throw new GameFrameworkException("Release object filter callback is invalid.");
+                    throw new FrameworkException("Release object filter callback is invalid.");
                 }
 
                 if (toReleaseCount < 0)
@@ -485,7 +485,7 @@ namespace EFFramework
             public override ObjectInfo[] GetAllObjectInfos()
             {
                 List<ObjectInfo> results = new List<ObjectInfo>();
-                foreach (KeyValuePair<string, GameFrameworkLinkedListRange<Object<T>>> objectRanges in _objects)
+                foreach (KeyValuePair<string, FrameworkLinkedListRange<Object<T>>> objectRanges in _objects)
                 {
                     foreach (Object<T> internalObject in objectRanges.Value)
                     {
@@ -526,7 +526,7 @@ namespace EFFramework
             {
                 if (target == null)
                 {
-                    throw new GameFrameworkException("Target is invalid.");
+                    throw new FrameworkException("Target is invalid.");
                 }
 
                 Object<T> internalObject = null;
@@ -542,7 +542,7 @@ namespace EFFramework
             {
                 if (results == null)
                 {
-                    throw new GameFrameworkException("Results is invalid.");
+                    throw new FrameworkException("Results is invalid.");
                 }
 
                 results.Clear();

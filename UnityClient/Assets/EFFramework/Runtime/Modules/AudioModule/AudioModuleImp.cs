@@ -325,7 +325,7 @@ namespace EFFramework
         /// <param name="audioGroupConfigs">音频轨道组配置。</param>
         /// <param name="instanceRoot">实例化根节点。</param>
         /// <param name="audioMixer">音频混响器。</param>
-        /// <exception cref="GameFrameworkException"></exception>
+        /// <exception cref="FrameworkException"></exception>
         public void Initialize(AudioGroupConfig[] audioGroupConfigs, Transform instanceRoot = null,AudioMixer audioMixer = null)
         {
             if (_instanceRoot == null)
@@ -335,7 +335,7 @@ namespace EFFramework
 
             if (audioGroupConfigs == null)
             {
-                throw new GameFrameworkException("AudioGroupConfig[] is invalid.");
+                throw new FrameworkException("AudioGroupConfig[] is invalid.");
             }
 
             _audioGroupConfigs = audioGroupConfigs;
@@ -343,9 +343,9 @@ namespace EFFramework
             if (_instanceRoot == null)
             {
                 _instanceRoot = new GameObject("AudioModule Instances").transform;
-                _instanceRoot.SetParent(GameModule.Audio.transform);
+                _instanceRoot.SetParent(AppModule.Audio.transform);
                 _instanceRoot.localScale = Vector3.one;
-                GameModule.Audio.InstanceRoot = _instanceRoot;
+                AppModule.Audio.InstanceRoot = _instanceRoot;
             }
 
             try
@@ -496,7 +496,7 @@ namespace EFFramework
             {
                 if (AudioClipPool != null && !AudioClipPool.ContainsKey(path))
                 {
-                    AssetHandle assetData = GameModule.Resource.LoadAssetGetOperation<AudioClip>(path);
+                    AssetHandle assetData = AppModule.Resource.LoadAssetGetOperation<AudioClip>(path);
                     AudioClipPool?.Add(path, assetData);
                 }
             }

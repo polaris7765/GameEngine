@@ -22,7 +22,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取游戏框架模块优先级。
+        /// 获取应用框架模块优先级。
         /// </summary>
         /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
         internal override int Priority => 1;
@@ -94,7 +94,7 @@ namespace EFFramework
         {
             if (ownerType == null)
             {
-                throw new GameFrameworkException("Owner type is invalid.");
+                throw new FrameworkException("Owner type is invalid.");
             }
 
             return InternalHasFsm(new TypeNamePair(ownerType));
@@ -121,7 +121,7 @@ namespace EFFramework
         {
             if (ownerType == null)
             {
-                throw new GameFrameworkException("Owner type is invalid.");
+                throw new FrameworkException("Owner type is invalid.");
             }
 
             return InternalHasFsm(new TypeNamePair(ownerType, name));
@@ -146,7 +146,7 @@ namespace EFFramework
         {
             if (ownerType == null)
             {
-                throw new GameFrameworkException("Owner type is invalid.");
+                throw new FrameworkException("Owner type is invalid.");
             }
 
             return InternalGetFsm(new TypeNamePair(ownerType));
@@ -173,7 +173,7 @@ namespace EFFramework
         {
             if (ownerType == null)
             {
-                throw new GameFrameworkException("Owner type is invalid.");
+                throw new FrameworkException("Owner type is invalid.");
             }
 
             return InternalGetFsm(new TypeNamePair(ownerType, name));
@@ -203,7 +203,7 @@ namespace EFFramework
         {
             if (results == null)
             {
-                throw new GameFrameworkException("Results is invalid.");
+                throw new FrameworkException("Results is invalid.");
             }
 
             results.Clear();
@@ -238,7 +238,7 @@ namespace EFFramework
             TypeNamePair typeNamePair = new TypeNamePair(typeof(T), name);
             if (HasFsm<T>(name))
             {
-                throw new GameFrameworkException(Utility.Text.Format("Already exist FSM '{0}'.", typeNamePair));
+                throw new FrameworkException(Utility.Text.Format("Already exist FSM '{0}'.", typeNamePair));
             }
 
             Fsm<T> fsm = Fsm<T>.Create(name, owner, states);
@@ -271,7 +271,7 @@ namespace EFFramework
             TypeNamePair typeNamePair = new TypeNamePair(typeof(T), name);
             if (HasFsm<T>(name))
             {
-                throw new GameFrameworkException(Utility.Text.Format("Already exist FSM '{0}'.", typeNamePair));
+                throw new FrameworkException(Utility.Text.Format("Already exist FSM '{0}'.", typeNamePair));
             }
 
             Fsm<T> fsm = Fsm<T>.Create(name, owner, states);
@@ -298,7 +298,7 @@ namespace EFFramework
         {
             if (ownerType == null)
             {
-                throw new GameFrameworkException("Owner type is invalid.");
+                throw new FrameworkException("Owner type is invalid.");
             }
 
             return InternalDestroyFsm(new TypeNamePair(ownerType));
@@ -325,7 +325,7 @@ namespace EFFramework
         {
             if (ownerType == null)
             {
-                throw new GameFrameworkException("Owner type is invalid.");
+                throw new FrameworkException("Owner type is invalid.");
             }
 
             return InternalDestroyFsm(new TypeNamePair(ownerType, name));
@@ -341,7 +341,7 @@ namespace EFFramework
         {
             if (fsm == null)
             {
-                throw new GameFrameworkException("FSM is invalid.");
+                throw new FrameworkException("FSM is invalid.");
             }
 
             return InternalDestroyFsm(new TypeNamePair(typeof(T), fsm.Name));
@@ -356,7 +356,7 @@ namespace EFFramework
         {
             if (fsm == null)
             {
-                throw new GameFrameworkException("FSM is invalid.");
+                throw new FrameworkException("FSM is invalid.");
             }
 
             return InternalDestroyFsm(new TypeNamePair(fsm.OwnerType, fsm.Name));

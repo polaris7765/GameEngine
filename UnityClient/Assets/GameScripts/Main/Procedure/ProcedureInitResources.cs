@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using EFFramework;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
-namespace GameMain
+namespace AppMain
 {
     public class ProcedureInitResources : ProcedureBase
     {

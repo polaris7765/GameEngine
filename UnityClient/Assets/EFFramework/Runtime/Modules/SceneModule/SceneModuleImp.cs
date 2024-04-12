@@ -100,7 +100,7 @@ namespace EFFramework
                     InvokeProgress(_currentMainScene, progressCallBack).Forget();
                 }
                 
-                GameModule.Resource.ForceUnloadUnusedAssets(gcCollect);
+                AppModule.Resource.ForceUnloadUnusedAssets(gcCollect);
 
                 return _currentMainScene;
             }

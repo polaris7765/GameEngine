@@ -40,7 +40,7 @@ namespace EFFramework
         public long Milliseconds { get; set; }
 
         /// <summary>
-        /// 获取游戏框架模块优先级。
+        /// 获取应用框架模块优先级。
         /// </summary>
         /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
         internal override int Priority => 4;
@@ -81,7 +81,7 @@ namespace EFFramework
         public string ReadWritePath => m_ReadWritePath;
 
         /// <summary>
-        /// 获取当前资源适用的游戏版本号。
+        /// 获取当前资源适用的应用版本号。
         /// </summary>
         public string ApplicableGameVersion => m_ApplicableGameVersion;
 
@@ -148,7 +148,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(readOnlyPath))
             {
-                throw new GameFrameworkException("Read-only path is invalid.");
+                throw new FrameworkException("Read-only path is invalid.");
             }
 
             m_ReadOnlyPath = readOnlyPath;
@@ -162,7 +162,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(readWritePath))
             {
-                throw new GameFrameworkException("Read-write path is invalid.");
+                throw new FrameworkException("Read-write path is invalid.");
             }
 
             m_ReadWritePath = readWritePath;
@@ -347,7 +347,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
 
             if (string.IsNullOrEmpty(packageName))
@@ -372,7 +372,7 @@ namespace EFFramework
                 var package = YooAssets.GetPackage(packageName);
                 if (package == null)
                 {
-                    throw new GameFrameworkException($"The package does not exist. Package Name :{packageName}");
+                    throw new FrameworkException($"The package does not exist. Package Name :{packageName}");
                 }
 
                 assetInfo = package.GetAssetInfo(location);
@@ -391,7 +391,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
 
             AssetInfo assetInfo = GetAssetInfo(location, packageName);
@@ -503,7 +503,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
 
             string assetObjectKey = GetCacheKey(location, packageName);
@@ -527,7 +527,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
             
             string assetObjectKey = GetCacheKey(location, packageName);
@@ -564,7 +564,7 @@ namespace EFFramework
             
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
             
             string assetObjectKey = GetCacheKey(location, packageName);
@@ -597,7 +597,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
             throw new NotImplementedException();
         }
@@ -606,7 +606,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
             throw new NotImplementedException();
         }
@@ -615,7 +615,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
             
             string assetObjectKey = GetCacheKey(location, packageName);
@@ -645,7 +645,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
             
             string assetObjectKey = GetCacheKey(location, packageName);
@@ -687,12 +687,12 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
 
             if (loadAssetCallbacks == null)
             {
-                throw new GameFrameworkException("Load asset callbacks is invalid.");
+                throw new FrameworkException("Load asset callbacks is invalid.");
             }
             
             string assetObjectKey = GetCacheKey(location, packageName);
@@ -714,7 +714,7 @@ namespace EFFramework
                     return;
                 }
 
-                throw new GameFrameworkException(errorMessage);
+                throw new FrameworkException(errorMessage);
             }
             
             float duration = Time.time;
@@ -737,7 +737,7 @@ namespace EFFramework
                     return;
                 }
 
-                throw new GameFrameworkException(errorMessage);
+                throw new FrameworkException(errorMessage);
             }
             else
             {
@@ -765,12 +765,12 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
 
             if (loadAssetCallbacks == null)
             {
-                throw new GameFrameworkException("Load asset callbacks is invalid.");
+                throw new FrameworkException("Load asset callbacks is invalid.");
             }
             
             string assetObjectKey = GetCacheKey(location, packageName);
@@ -792,7 +792,7 @@ namespace EFFramework
                     return;
                 }
 
-                throw new GameFrameworkException(errorMessage);
+                throw new FrameworkException(errorMessage);
             }
             
             float duration = Time.time;
@@ -815,7 +815,7 @@ namespace EFFramework
                     return;
                 }
 
-                throw new GameFrameworkException(errorMessage);
+                throw new FrameworkException(errorMessage);
             }
             else
             {
@@ -835,7 +835,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                throw new GameFrameworkException("Asset name is invalid.");
+                throw new FrameworkException("Asset name is invalid.");
             }
             
             if (loadAssetUpdateCallback != null)

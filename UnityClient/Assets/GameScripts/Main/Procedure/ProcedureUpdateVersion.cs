@@ -5,7 +5,7 @@ using EFFramework;
 using YooAsset;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
-namespace GameMain
+namespace AppMain
 {
     /// <summary>
     /// 流程 => 用户尝试更新静态版本
@@ -48,7 +48,7 @@ namespace GameMain
         {
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
 
-            var operation = GameModule.Resource.UpdatePackageVersionAsync();
+            var operation = AppModule.Resource.UpdatePackageVersionAsync();
 
             try
             {
@@ -57,8 +57,8 @@ namespace GameMain
                 if (operation.Status == EOperationStatus.Succeed)
                 {
                     //线上最新版本operation.PackageVersion
-                    GameModule.Resource.PackageVersion = operation.PackageVersion;
-                    Log.Debug($"Updated package Version : from {GameModule.Resource.GetPackageVersion()} to {operation.PackageVersion}");
+                    AppModule.Resource.PackageVersion = operation.PackageVersion;
+                    Log.Debug($"Updated package Version : from {AppModule.Resource.GetPackageVersion()} to {operation.PackageVersion}");
                     ChangeState<ProcedureUpdateManifest>(_procedureOwner);
                 }
                 else

@@ -57,7 +57,7 @@ public static class ShaderVariantCollector
         _processMaxNum = processMaxNum;
         _completedCallback = completedCallback;
 
-        // 聚焦到游戏窗口
+        // 聚焦到应用窗口
         EditorTools.FocusUnityGameWindow();
 
         // 创建临时测试场景

@@ -8,7 +8,7 @@ using UnityEngine;
 namespace EFFramework.Editor
 {
     [CustomEditor(typeof(RootModule))]
-    internal sealed class RootModuleInspector : GameFrameworkInspector
+    internal sealed class RootModuleInspector : EFFrameworkInspector
     {
         private const string NoneOptionName = "<None>";
         private static readonly float[] GameSpeed = new float[] { 0f, 0.01f, 0.1f, 0.25f, 0.5f, 1f, 1.5f, 2f, 4f, 8f };
@@ -213,7 +213,7 @@ namespace EFFramework.Editor
                 NoneOptionName
             };
 
-            logHelperTypeNames.AddRange(Type.GetRuntimeTypeNames(typeof(GameFrameworkLog.ILogHelper)));
+            logHelperTypeNames.AddRange(Type.GetRuntimeTypeNames(typeof(EFFrameworkLog.ILogHelper)));
             m_LogHelperTypeNames = logHelperTypeNames.ToArray();
             m_LogHelperTypeNameIndex = 0;
             if (!string.IsNullOrEmpty(m_LogHelperTypeName.stringValue))

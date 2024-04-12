@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GameFramework.Runtime
+namespace EFFramework.Runtime
 {
     /// <summary>
     /// 内置资源清单

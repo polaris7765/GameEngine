@@ -4,7 +4,7 @@ using EFFramework;
 using YooAsset;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
-namespace GameMain
+namespace AppMain
 {
     /// <summary>
     /// 流程 => 用户尝试更新清单
@@ -26,7 +26,7 @@ namespace GameMain
         {
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             
-            var operation = GameModule.Resource.UpdatePackageManifestAsync(GameModule.Resource.PackageVersion);
+            var operation = AppModule.Resource.UpdatePackageManifestAsync(AppModule.Resource.PackageVersion);
             
             await operation.ToUniTask();
             

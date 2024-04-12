@@ -253,7 +253,7 @@ namespace EFFramework
 
                 _entity = new GameObject("[Unity.Utility]");
                 _entity.SetActive(true);
-                _entity.transform.SetParent(GameModule.Base.transform);
+                _entity.transform.SetParent(AppModule.Base.transform);
 
                 UnityEngine.Assertions.Assert.IsFalse(_behaviour);
                 _behaviour = _entity.AddComponent<MainBehaviour>();

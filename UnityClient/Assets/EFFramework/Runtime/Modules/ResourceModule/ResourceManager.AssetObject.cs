@@ -23,12 +23,12 @@ namespace EFFramework
             {
                 if (assetHandle == null)
                 {
-                    throw new GameFrameworkException("Resource is invalid.");
+                    throw new FrameworkException("Resource is invalid.");
                 }
 
                 if (resourceManager == null)
                 {
-                    throw new GameFrameworkException("Resource Manager is invalid.");
+                    throw new FrameworkException("Resource Manager is invalid.");
                 }
 
                 AssetObject assetObject = MemoryPool.Acquire<AssetObject>();

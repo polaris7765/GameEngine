@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
-namespace GameMain
+namespace AppMain
 {
     /// <summary>
     /// 流程 => 闪屏。

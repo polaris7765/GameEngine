@@ -67,7 +67,7 @@ namespace EFFramework
             {
                 if (!_longPressTriggered)
                 {
-                    _curTime += GameTime.deltaTime;
+                    _curTime += AppTime.deltaTime;
                     if (_curTime >= durationThreshold)
                     {
                         _longPressTriggered = true;
@@ -82,8 +82,8 @@ namespace EFFramework
                 }
                 else if (callIntervalTime > 0)
                 {
-                    _curTime += GameTime.deltaTime;
-                    _curCallTime += GameTime.deltaTime;
+                    _curTime += AppTime.deltaTime;
+                    _curCallTime += AppTime.deltaTime;
                     if (_curCallTime >= callIntervalTime)
                     {
                         float value = 0;

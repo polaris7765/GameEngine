@@ -90,7 +90,7 @@ namespace YooAsset
         }
 
         /// <summary>
-        /// 同步初始化游戏对象
+        /// 同步初始化应用对象
         /// </summary>
         public GameObject InstantiateSync()
         {
@@ -114,7 +114,7 @@ namespace YooAsset
         }
 
         /// <summary>
-        /// 异步初始化游戏对象
+        /// 异步初始化应用对象
         /// </summary>
         public InstantiateOperation InstantiateAsync()
         {

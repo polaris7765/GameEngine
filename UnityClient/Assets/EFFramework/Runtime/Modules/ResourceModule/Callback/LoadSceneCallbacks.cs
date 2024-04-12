@@ -48,7 +48,7 @@
         {
             if (loadSceneSuccessCallback == null)
             {
-                throw new GameFrameworkException("Load scene success callback is invalid.");
+                throw new FrameworkException("Load scene success callback is invalid.");
             }
 
             m_LoadSceneSuccessCallback = loadSceneSuccessCallback;

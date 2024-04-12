@@ -4,7 +4,7 @@ using UnityEngine.Profiling;
 namespace EFFramework
 {
     /// <summary>
-    /// 游戏框架Profiler分析器类。
+    /// 应用框架Profiler分析器类。
     /// </summary>
     public class TProfiler
     {

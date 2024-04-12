@@ -18,7 +18,7 @@ namespace EFFramework
         public int Count => _fsmManager.Count;
 
         /// <summary>
-        /// 游戏框架模块初始化。
+        /// 应用框架模块初始化。
         /// </summary>
         protected override void Awake()
         {

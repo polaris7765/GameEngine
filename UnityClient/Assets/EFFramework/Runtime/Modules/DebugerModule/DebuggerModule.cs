@@ -141,7 +141,7 @@ namespace EFFramework
         private bool _eventSystemActive = true;
         private GameObject _eventSystem;
         /// <summary>
-        /// 游戏框架模块初始化。
+        /// 应用框架模块初始化。
         /// </summary>
         protected override void Awake()
         {
@@ -246,7 +246,7 @@ namespace EFFramework
 
         private void Update()
         {
-            m_FpsCounter.Update(GameTime.deltaTime, GameTime.unscaledDeltaTime);
+            m_FpsCounter.Update(AppTime.deltaTime, AppTime.unscaledDeltaTime);
         }
 
         private void OnGUI()

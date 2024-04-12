@@ -43,7 +43,7 @@ namespace EFFramework
         private IEnumerator Start()
         {
             yield return new WaitForEndOfFrame();
-            ObjectPoolModule objectPoolComponent = GameModule.Get<ObjectPoolModule>();
+            ObjectPoolModule objectPoolComponent = AppModule.Get<ObjectPoolModule>();
             m_AssetItemPool = objectPoolComponent.CreateMultiSpawnObjectPool<AssetItemObject>(
                 "SetAssetPool",
                 m_AutoReleaseInterval, 16, 60, 0);

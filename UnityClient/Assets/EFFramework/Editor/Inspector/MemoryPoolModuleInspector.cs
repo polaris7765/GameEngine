@@ -8,7 +8,7 @@ using UnityEngine;
 namespace EFFramework.Editor.Inspector
 {
     [CustomEditor(typeof(MemoryPoolModule))]
-    internal sealed class MemoryPoolModuleInspector : GameFrameworkInspector
+    internal sealed class MemoryPoolModuleInspector : EFFrameworkInspector
     {
         private readonly Dictionary<string, List<MemoryPoolInfo>> m_MemoryPoolInfos = new Dictionary<string, List<MemoryPoolInfo>>(StringComparer.Ordinal);
         private readonly HashSet<string> m_OpenedItems = new HashSet<string>();

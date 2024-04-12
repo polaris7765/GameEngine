@@ -6,7 +6,7 @@ using YooAsset;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 using Utility = EFFramework.Utility;
 
-namespace GameMain
+namespace AppMain
 {
     /// <summary>
     /// 流程 => 初始化Package。
@@ -31,8 +31,8 @@ namespace GameMain
         {
             try
             {
-                if (GameModule.Resource.PlayMode == EPlayMode.HostPlayMode ||
-                    GameModule.Resource.PlayMode == EPlayMode.WebPlayMode)
+                if (AppModule.Resource.PlayMode == EPlayMode.HostPlayMode ||
+                    AppModule.Resource.PlayMode == EPlayMode.WebPlayMode)
                 {
                     if (SettingsUtils.EnableUpdateData())
                     {
@@ -54,16 +54,16 @@ namespace GameMain
                     }
                 }
 
-                var initializationOperation = await GameModule.Resource.InitPackage();
+                var initializationOperation = await AppModule.Resource.InitPackage();
 
                 if (initializationOperation.Status == EOperationStatus.Succeed)
                 {
                     //热更新阶段文本初始化
                     LoadText.Instance.InitConfigData(null);
 
-                    GameEvent.Send(RuntimeId.ToRuntimeId("RefreshVersion"));
+                    AppEvent.Send(RuntimeId.ToRuntimeId("RefreshVersion"));
 
-                    EPlayMode playMode = GameModule.Resource.PlayMode;
+                    EPlayMode playMode = AppModule.Resource.PlayMode;
 
                     // 编辑器模式。
                     if (playMode == EPlayMode.EditorSimulateMode)

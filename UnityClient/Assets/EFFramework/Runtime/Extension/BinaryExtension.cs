@@ -24,7 +24,7 @@ namespace EFFramework
             {
                 if (shift >= 35)
                 {
-                    throw new GameFrameworkException("7 bit encoded int is invalid.");
+                    throw new FrameworkException("7 bit encoded int is invalid.");
                 }
 
                 b = binaryReader.ReadByte();
@@ -86,7 +86,7 @@ namespace EFFramework
             {
                 if (shift >= 70)
                 {
-                    throw new GameFrameworkException("7 bit encoded int is invalid.");
+                    throw new FrameworkException("7 bit encoded int is invalid.");
                 }
 
                 b = binaryReader.ReadByte();
@@ -176,7 +176,7 @@ namespace EFFramework
             int length = Utility.Converter.GetBytes(value, s_CachedBytes);
             if (length > byte.MaxValue)
             {
-                throw new GameFrameworkException(Utility.Text.Format("String '{0}' is too long.", value));
+                throw new FrameworkException(Utility.Text.Format("String '{0}' is too long.", value));
             }
 
             Utility.Encryption.GetSelfXorBytes(s_CachedBytes, encryptBytes);

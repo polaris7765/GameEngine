@@ -3,7 +3,7 @@
 namespace EFFramework.Editor.Inspector
 {
     [CustomEditor(typeof(AudioModule))]
-    internal sealed class AudioModuleInspector : GameFrameworkInspector
+    internal sealed class AudioModuleInspector : EFFrameworkInspector
     {
         private SerializedProperty m_InstanceRoot = null;
         private SerializedProperty m_AudioMixer = null;

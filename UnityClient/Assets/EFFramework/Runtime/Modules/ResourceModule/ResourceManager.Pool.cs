@@ -60,7 +60,7 @@
         {
             if (objectPoolManager == null)
             {
-                throw new GameFrameworkException("Object pool manager is invalid.");
+                throw new FrameworkException("Object pool manager is invalid.");
             }
             m_AssetPool = objectPoolManager.CreateMultiSpawnObjectPool<AssetObject>("Asset Pool");
         }

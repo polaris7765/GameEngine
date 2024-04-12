@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EFFrameworkGlobalSettings
   m_EditorClassIdentifier: 
   m_FrameworkGlobalSettings:
-    m_ScriptAuthor: Leo
+    m_ScriptAuthor: EF
     m_ScriptVersion: 0.1
     mAppStageEnum: 1
     m_DefaultFont: Arial
@@ -36,7 +36,7 @@ MonoBehaviour:
     WebGLUpdateDataUrl: http://127.0.0.1
     m_CurUseServerChannel: 
     m_ServerChannelInfos: []
-    namespace: GameLogic
+    namespace: AppLogic
     scriptGenerateRule:
     - uiElementRegex: m_go
       componentName: GameObject
@@ -80,9 +80,9 @@ MonoBehaviour:
       componentName: CanvasGroup
   m_BybridCLRCustomGlobalSettings:
     HotUpdateAssemblies:
-    - GameBase.dll
-    - GameProto.dll
-    - GameLogic.dll
+    - AppBase.dll
+    - AppProto.dll
+    - AppLogic.dll
     AOTMetaAssemblies:
     - mscorlib.dll
     - System.dll
@@ -90,8 +90,8 @@ MonoBehaviour:
     - UnityEngine.CoreModule.dll
     - YooAsset.dll
     - UniTask.dll
-    - TEngine.Runtime.dll
-    LogicMainDllName: GameLogic.dll
+    - EFFramwork.Runtime.dll
+    LogicMainDllName: AppLogic.dll
     AssemblyTextAssetExtension: .bytes
     AssemblyTextAssetPath: AssetRaw/DLL
     HybridCLRGlobalSettings: Settings/HybridCLRGlobalSettings

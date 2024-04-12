@@ -1,7 +1,7 @@
 ﻿using EFFramework;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
-namespace GameMain
+namespace AppMain
 {
     public class ProcedureDownloadOver:ProcedureBase
     {

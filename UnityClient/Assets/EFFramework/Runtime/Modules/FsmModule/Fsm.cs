@@ -80,12 +80,12 @@ namespace EFFramework
         {
             if (owner == null)
             {
-                throw new GameFrameworkException("FSM owner is invalid.");
+                throw new FrameworkException("FSM owner is invalid.");
             }
 
             if (states == null || states.Length < 1)
             {
-                throw new GameFrameworkException("FSM states is invalid.");
+                throw new FrameworkException("FSM states is invalid.");
             }
 
             Fsm<T> fsm = MemoryPool.Acquire<Fsm<T>>();
@@ -96,13 +96,13 @@ namespace EFFramework
             {
                 if (state == null)
                 {
-                    throw new GameFrameworkException("FSM states is invalid.");
+                    throw new FrameworkException("FSM states is invalid.");
                 }
 
                 Type stateType = state.GetType();
                 if (fsm._states.ContainsKey(stateType))
                 {
-                    throw new GameFrameworkException(Utility.Text.Format("FSM '{0}' state '{1}' is already exist.", new TypeNamePair(typeof(T), name), stateType.FullName));
+                    throw new FrameworkException(Utility.Text.Format("FSM '{0}' state '{1}' is already exist.", new TypeNamePair(typeof(T), name), stateType.FullName));
                 }
 
                 fsm._states.Add(stateType, state);
@@ -123,12 +123,12 @@ namespace EFFramework
         {
             if (owner == null)
             {
-                throw new GameFrameworkException("FSM owner is invalid.");
+                throw new FrameworkException("FSM owner is invalid.");
             }
 
             if (states == null || states.Count < 1)
             {
-                throw new GameFrameworkException("FSM states is invalid.");
+                throw new FrameworkException("FSM states is invalid.");
             }
 
             Fsm<T> fsm = MemoryPool.Acquire<Fsm<T>>();
@@ -139,13 +139,13 @@ namespace EFFramework
             {
                 if (state == null)
                 {
-                    throw new GameFrameworkException("FSM states is invalid.");
+                    throw new FrameworkException("FSM states is invalid.");
                 }
 
                 Type stateType = state.GetType();
                 if (fsm._states.ContainsKey(stateType))
                 {
-                    throw new GameFrameworkException(Utility.Text.Format("FSM '{0}' state '{1}' is already exist.", new TypeNamePair(typeof(T), name), stateType.FullName));
+                    throw new FrameworkException(Utility.Text.Format("FSM '{0}' state '{1}' is already exist.", new TypeNamePair(typeof(T), name), stateType.FullName));
                 }
 
                 fsm._states.Add(stateType, state);
@@ -187,13 +187,13 @@ namespace EFFramework
         {
             if (IsRunning)
             {
-                throw new GameFrameworkException("FSM is running, can not start again.");
+                throw new FrameworkException("FSM is running, can not start again.");
             }
 
             FsmState<T> state = GetState<TState>();
             if (state == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("FSM '{0}' can not start state '{1}' which is not exist.", new TypeNamePair(typeof(T), Name), typeof(TState).FullName));
+                throw new FrameworkException(Utility.Text.Format("FSM '{0}' can not start state '{1}' which is not exist.", new TypeNamePair(typeof(T), Name), typeof(TState).FullName));
             }
 
             _currentStateTime = 0f;
@@ -209,23 +209,23 @@ namespace EFFramework
         {
             if (IsRunning)
             {
-                throw new GameFrameworkException("FSM is running, can not start again.");
+                throw new FrameworkException("FSM is running, can not start again.");
             }
 
             if (stateType == null)
             {
-                throw new GameFrameworkException("State type is invalid.");
+                throw new FrameworkException("State type is invalid.");
             }
 
             if (!typeof(FsmState<T>).IsAssignableFrom(stateType))
             {
-                throw new GameFrameworkException(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
+                throw new FrameworkException(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
             }
 
             FsmState<T> state = GetState(stateType);
             if (state == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("FSM '{0}' can not start state '{1}' which is not exist.", new TypeNamePair(typeof(T), Name), stateType.FullName));
+                throw new FrameworkException(Utility.Text.Format("FSM '{0}' can not start state '{1}' which is not exist.", new TypeNamePair(typeof(T), Name), stateType.FullName));
             }
 
             _currentStateTime = 0f;
@@ -252,12 +252,12 @@ namespace EFFramework
         {
             if (stateType == null)
             {
-                throw new GameFrameworkException("State type is invalid.");
+                throw new FrameworkException("State type is invalid.");
             }
 
             if (!typeof(FsmState<T>).IsAssignableFrom(stateType))
             {
-                throw new GameFrameworkException(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
+                throw new FrameworkException(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
             }
 
             return _states.ContainsKey(stateType);
@@ -288,12 +288,12 @@ namespace EFFramework
         {
             if (stateType == null)
             {
-                throw new GameFrameworkException("State type is invalid.");
+                throw new FrameworkException("State type is invalid.");
             }
 
             if (!typeof(FsmState<T>).IsAssignableFrom(stateType))
             {
-                throw new GameFrameworkException(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
+                throw new FrameworkException(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
             }
 
             FsmState<T> state = null;
@@ -329,7 +329,7 @@ namespace EFFramework
         {
             if (results == null)
             {
-                throw new GameFrameworkException("Results is invalid.");
+                throw new FrameworkException("Results is invalid.");
             }
 
             results.Clear();
@@ -348,7 +348,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new GameFrameworkException("Data name is invalid.");
+                throw new FrameworkException("Data name is invalid.");
             }
 
             if (_dataMap == null)
@@ -379,7 +379,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new GameFrameworkException("Data name is invalid.");
+                throw new FrameworkException("Data name is invalid.");
             }
 
             if (_dataMap == null)
@@ -415,7 +415,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new GameFrameworkException("Data name is invalid.");
+                throw new FrameworkException("Data name is invalid.");
             }
 
             if (_dataMap == null)
@@ -435,7 +435,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new GameFrameworkException("Data name is invalid.");
+                throw new FrameworkException("Data name is invalid.");
             }
 
             if (_dataMap == null)
@@ -487,13 +487,13 @@ namespace EFFramework
         {
             if (_currentState == null)
             {
-                throw new GameFrameworkException("Current state is invalid.");
+                throw new FrameworkException("Current state is invalid.");
             }
 
             FsmState<T> state = GetState(stateType);
             if (state == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("FSM '{0}' can not change state to '{1}' which is not exist.", new TypeNamePair(typeof(T), Name), stateType.FullName));
+                throw new FrameworkException(Utility.Text.Format("FSM '{0}' can not change state to '{1}' which is not exist.", new TypeNamePair(typeof(T), Name), stateType.FullName));
             }
 
             _currentState.OnLeave(this, false);

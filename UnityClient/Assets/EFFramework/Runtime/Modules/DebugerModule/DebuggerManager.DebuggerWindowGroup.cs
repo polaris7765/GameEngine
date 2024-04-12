@@ -201,7 +201,7 @@ namespace EFFramework
             {
                 if (string.IsNullOrEmpty(path))
                 {
-                    throw new GameFrameworkException("Path is invalid.");
+                    throw new FrameworkException("Path is invalid.");
                 }
 
                 int pos = path.IndexOf('/');
@@ -209,7 +209,7 @@ namespace EFFramework
                 {
                     if (InternalGetDebuggerWindow(path) != null)
                     {
-                        throw new GameFrameworkException("Debugger window has been registered.");
+                        throw new FrameworkException("Debugger window has been registered.");
                     }
 
                     _debuggerWindows.Add(new KeyValuePair<string, IDebuggerWindow>(path, debuggerWindow));
@@ -224,7 +224,7 @@ namespace EFFramework
                     {
                         if (InternalGetDebuggerWindow(debuggerWindowGroupName) != null)
                         {
-                            throw new GameFrameworkException("Debugger window has been registered, can not create debugger window group.");
+                            throw new FrameworkException("Debugger window has been registered, can not create debugger window group.");
                         }
 
                         debuggerWindowGroup = new DebuggerWindowGroup();

@@ -86,7 +86,7 @@ namespace EFFramework
 
             AudioAgents = new List<AudioAgent>(32);
             InstanceRoot = new GameObject(Utility.Text.Format("Audio Category - {0}", _audioMixerGroup.name)).transform;
-            InstanceRoot.SetParent(GameModule.Audio.InstanceRoot);
+            InstanceRoot.SetParent(AppModule.Audio.InstanceRoot);
             for (int index = 0; index < _maxChannel; index++)
             {
                 AudioAgent audioAgent = new AudioAgent();

@@ -2,7 +2,7 @@
 using System;
 using EFFramework;
 
-namespace GameMain
+namespace AppMain
 {
     public enum MessageShowType
     {
@@ -131,7 +131,7 @@ namespace GameMain
             Action onCancel = null,
             Action onPackage = null)
         {
-            GameModule.UI.ShowUI<UILoadTip>(desc,onOk,onCancel,showtype,style);
+            AppModule.UI.ShowUI<UILoadTip>(desc,onOk,onCancel,showtype,style);
         }
     }
 }

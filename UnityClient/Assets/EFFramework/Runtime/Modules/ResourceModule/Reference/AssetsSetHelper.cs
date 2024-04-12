@@ -21,7 +21,7 @@ namespace EFFramework
         {
             if (image == null)
             {
-                throw new GameFrameworkException($"SetSprite failed. Because image is null.");
+                throw new FrameworkException($"SetSprite failed. Because image is null.");
             }
 
             CheckResourceManager();
@@ -53,7 +53,7 @@ namespace EFFramework
         {
             if (spriteRenderer == null)
             {
-                throw new GameFrameworkException($"SetSprite failed. Because image is null.");
+                throw new FrameworkException($"SetSprite failed. Because image is null.");
             }
 
             CheckResourceManager();
@@ -85,7 +85,7 @@ namespace EFFramework
         {
             if (meshRenderer == null)
             {
-                throw new GameFrameworkException($"SetSprite failed. Because image is null.");
+                throw new FrameworkException($"SetSprite failed. Because image is null.");
             }
 
             CheckResourceManager();
@@ -117,7 +117,7 @@ namespace EFFramework
         {
             if (meshRenderer == null)
             {
-                throw new GameFrameworkException($"SetSprite failed. Because image is null.");
+                throw new FrameworkException($"SetSprite failed. Because image is null.");
             }
 
             CheckResourceManager();

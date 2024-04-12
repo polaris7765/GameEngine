@@ -42,8 +42,8 @@ namespace EFFramework
 #else
                     DrawItem("Game Identifier", Application.bundleIdentifier);
 #endif
-                    DrawItem("Game Framework Version", Version.GameFrameworkVersion);
-                    DrawItem("Game Version", Utility.Text.Format("{0} ({1})", Version.GameVersion, Version.InternalGameVersion));
+                    DrawItem("App Framework Version", Version.FrameworkVersion);
+                    DrawItem("App Version", Utility.Text.Format("{0} ({1})", Version.AppVersion, Version.InternalAppVersion));
                     DrawItem("Resource Version", (string.IsNullOrEmpty(_mResourceModule.ApplicableGameVersion) ? "Unknown" : Utility.Text.Format("{0} ({1})", _mResourceModule.ApplicableGameVersion, _mResourceModule.InternalResourceVersion)));
                     DrawItem("Application Version", Application.version);
                     DrawItem("Unity Version", Application.unityVersion);

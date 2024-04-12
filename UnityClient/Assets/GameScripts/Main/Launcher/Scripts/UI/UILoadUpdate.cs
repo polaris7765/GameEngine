@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using EFFramework;
 using Version = EFFramework.Version;
 
-namespace GameMain
+namespace AppMain
 {
     [Window(UILayer.UI, fromResources: true, location: "AssetLoad/UILoadUpdate",fullScreen:true)]
     public class UILoadUpdate : UIWindow
@@ -58,7 +58,7 @@ namespace GameMain
                 LoadStyle.StyleEnum.Style_Clear,
                 () =>
                 {
-                    GameModule.Resource.ClearSandbox();
+                    AppModule.Resource.ClearSandbox();
                     Application.Quit();
                 }, () => { OnContinue(null); });
         }
@@ -67,8 +67,8 @@ namespace GameMain
 
         private void RefreshVersion()
         {
-            m_textAppid.text = string.Format(LoadText.Instance.Label_App_id, Version.GameVersion);
-            m_textResid.text = string.Format(LoadText.Instance.Label_Res_id, GameModule.Resource.GetPackageVersion());
+            m_textAppid.text = string.Format(LoadText.Instance.Label_App_id, Version.AppVersion);
+            m_textResid.text = string.Format(LoadText.Instance.Label_Res_id, AppModule.Resource.GetPackageVersion());
         }
 
         public virtual void OnContinue(GameObject obj)

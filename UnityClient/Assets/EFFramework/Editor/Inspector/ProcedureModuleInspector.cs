@@ -6,7 +6,7 @@ using UnityEngine;
 namespace EFFramework.Editor.Inspector
 {
     [CustomEditor(typeof(ProcedureModule))]
-    internal sealed class ProcedureModuleInspector : GameFrameworkInspector
+    internal sealed class ProcedureModuleInspector : EFFrameworkInspector
     {
         private SerializedProperty m_AvailableProcedureTypeNames = null;
         private SerializedProperty m_EntranceProcedureTypeName = null;

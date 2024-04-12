@@ -23,7 +23,7 @@ All notable changes to this package will be documented in this file.
   }
   ```
 
-- 微信小游戏平台，资源下载器支持底层缓存查询。
+- 微信小应用平台，资源下载器支持底层缓存查询。
 
 ## [2.1.0] - 2023-12-27
 

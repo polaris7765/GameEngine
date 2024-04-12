@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameMain
+namespace AppMain
 {
     public class LoadUpdateLogic
     {

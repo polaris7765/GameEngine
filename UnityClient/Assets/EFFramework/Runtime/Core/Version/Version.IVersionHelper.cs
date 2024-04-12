@@ -8,17 +8,17 @@
         public interface IVersionHelper
         {
             /// <summary>
-            /// 获取游戏版本号。
+            /// 获取应用版本号。
             /// </summary>
-            string GameVersion
+            string AppVersion
             {
                 get;
             }
 
             /// <summary>
-            /// 获取内部游戏版本号。
+            /// 获取内部应用版本号。
             /// </summary>
-            string InternalGameVersion
+            string InternalAppVersion
             {
                 get;
             }

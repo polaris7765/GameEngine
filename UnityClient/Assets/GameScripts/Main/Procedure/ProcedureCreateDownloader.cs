@@ -8,7 +8,7 @@ using YooAsset;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 using Utility = EFFramework.Utility;
 
-namespace GameMain
+namespace AppMain
 {
     public class ProcedureCreateDownloader : ProcedureBase
     {
@@ -41,7 +41,7 @@ namespace GameMain
         {
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
 
-            _downloader = GameModule.Resource.CreateResourceDownloader();
+            _downloader = AppModule.Resource.CreateResourceDownloader();
 
             if (_downloader.TotalDownloadCount == 0)
             {

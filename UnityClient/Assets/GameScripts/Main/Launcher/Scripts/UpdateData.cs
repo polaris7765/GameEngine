@@ -18,8 +18,8 @@ public enum UpdateType
 public enum UpdateStyle
 {
     None = 0,
-    Force = 1, //强制(不更新无法进入游戏。)
-    Optional = 2, //非强制(不更新可以进入游戏。)
+    Force = 1, //强制(不更新无法进入应用。)
+    Optional = 2, //非强制(不更新可以进入应用。)
 }
 
 /// <summary>

@@ -119,7 +119,7 @@ namespace EFFramework
         {
             if (target == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Target '{0}' is invalid.", name));
+                throw new FrameworkException(Utility.Text.Format("Target '{0}' is invalid.", name));
             }
 
             _name = name ?? string.Empty;

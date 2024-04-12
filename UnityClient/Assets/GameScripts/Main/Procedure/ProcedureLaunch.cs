@@ -2,7 +2,7 @@
 using YooAsset;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
-namespace GameMain
+namespace AppMain
 {
     /// <summary>
     /// 流程 => 启动器。
@@ -35,18 +35,18 @@ namespace GameMain
 
         private void InitLanguageSettings()
         {
-            if (GameModule.Resource.PlayMode == EPlayMode.EditorSimulateMode && GameModule.Base.EditorLanguage == Language.Unspecified)
+            if (AppModule.Resource.PlayMode == EPlayMode.EditorSimulateMode && AppModule.Base.EditorLanguage == Language.Unspecified)
             {
                 // 编辑器资源模式直接使用 Inspector 上设置的语言
                 return;
             }
             
-            Language language = GameModule.Localization.Language;
-            if (GameModule.Setting.HasSetting(Constant.Setting.Language))
+            Language language = AppModule.Localization.Language;
+            if (AppModule.Setting.HasSetting(Constant.Setting.Language))
             {
                 try
                 {
-                    string languageString = GameModule.Setting.GetString(Constant.Setting.Language);
+                    string languageString = AppModule.Setting.GetString(Constant.Setting.Language);
                     language = (Language)System.Enum.Parse(typeof(Language), languageString);
                 }
                 catch(System.Exception exception)
@@ -62,22 +62,22 @@ namespace GameMain
                 // 若是暂不支持的语言，则使用英语
                 language = Language.English;
             
-                GameModule.Setting.SetString(Constant.Setting.Language, language.ToString());
-                GameModule.Setting.Save();
+                AppModule.Setting.SetString(Constant.Setting.Language, language.ToString());
+                AppModule.Setting.Save();
             }
             
-            GameModule.Localization.Language = language;
+            AppModule.Localization.Language = language;
             Log.Info("Init language settings complete, current language is '{0}'.", language.ToString());
         }
 
         private void InitSoundSettings()
         {
-            GameModule.Audio.MusicEnable = !GameModule.Setting.GetBool(Constant.Setting.MusicMuted, false);
-            GameModule.Audio.MusicVolume = GameModule.Setting.GetFloat(Constant.Setting.MusicVolume, 1f);
-            GameModule.Audio.SoundEnable = !GameModule.Setting.GetBool(Constant.Setting.SoundMuted, false);
-            GameModule.Audio.SoundVolume = GameModule.Setting.GetFloat(Constant.Setting.SoundVolume, 1f);
-            GameModule.Audio.UISoundEnable = !GameModule.Setting.GetBool(Constant.Setting.UISoundMuted, false);
-            GameModule.Audio.UISoundVolume = GameModule.Setting.GetFloat(Constant.Setting.UISoundVolume, 1f);
+            AppModule.Audio.MusicEnable = !AppModule.Setting.GetBool(Constant.Setting.MusicMuted, false);
+            AppModule.Audio.MusicVolume = AppModule.Setting.GetFloat(Constant.Setting.MusicVolume, 1f);
+            AppModule.Audio.SoundEnable = !AppModule.Setting.GetBool(Constant.Setting.SoundMuted, false);
+            AppModule.Audio.SoundVolume = AppModule.Setting.GetFloat(Constant.Setting.SoundVolume, 1f);
+            AppModule.Audio.UISoundEnable = !AppModule.Setting.GetBool(Constant.Setting.UISoundMuted, false);
+            AppModule.Audio.UISoundVolume = AppModule.Setting.GetFloat(Constant.Setting.UISoundVolume, 1f);
             Log.Info("Init sound settings complete.");
         }
     }

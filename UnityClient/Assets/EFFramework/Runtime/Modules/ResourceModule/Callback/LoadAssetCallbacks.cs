@@ -48,7 +48,7 @@ namespace EFFramework
         {
             if (loadAssetSuccessCallback == null)
             {
-                throw new GameFrameworkException("Load asset success callback is invalid.");
+                throw new FrameworkException("Load asset success callback is invalid.");
             }
 
             m_LoadAssetSuccessCallback = loadAssetSuccessCallback;

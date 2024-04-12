@@ -3,7 +3,7 @@
 namespace EFFramework.Editor.Inspector
 {
     [CustomEditor(typeof(FsmModule))]
-    internal sealed class FsmComponentInspector : GameFrameworkInspector
+    internal sealed class FsmComponentInspector : EFFrameworkInspector
     {
         public override void OnInspectorGUI()
         {

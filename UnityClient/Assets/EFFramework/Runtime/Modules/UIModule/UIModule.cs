@@ -69,7 +69,7 @@ namespace EFFramework
             m_InstanceRoot.gameObject.layer = LayerMask.NameToLayer("UI");
             UIRootStatic = m_InstanceRoot;
             
-            switch (GameModule.Debugger.ActiveWindowType)
+            switch (AppModule.Debugger.ActiveWindowType)
             {
                 case DebuggerActiveWindowType.AlwaysOpen:
                     m_enableErrorLog = true;
@@ -341,7 +341,7 @@ namespace EFFramework
             }
             
             window.Visible = false;
-            window.HideTimerId = GameModule.Timer.AddTimer((arg) =>
+            window.HideTimerId = AppModule.Timer.AddTimer((arg) =>
             {
                 CloseUI(type);
             },window.HideTimeToClose);
@@ -445,7 +445,7 @@ namespace EFFramework
             WindowAttribute attribute = Attribute.GetCustomAttribute(type, typeof(WindowAttribute)) as WindowAttribute;
 
             if (window == null)
-                throw new GameFrameworkException($"Window {type.FullName} create instance failed.");
+                throw new FrameworkException($"Window {type.FullName} create instance failed.");
 
             if (attribute != null)
             {

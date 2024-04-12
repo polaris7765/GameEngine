@@ -4,7 +4,7 @@ using UnityEditor;
 namespace EFFramework.Editor.Inspector
 {
     [CustomEditor(typeof(ResourceModule))]
-    internal sealed class ResourceModuleInspector : GameFrameworkInspector
+    internal sealed class ResourceModuleInspector : EFFrameworkInspector
     {
         private static readonly string[] _resourceModeNames = new string[]
         {

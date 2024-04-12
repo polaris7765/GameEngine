@@ -215,7 +215,7 @@ namespace YooAsset
                 var appFootPrint = new AppFootPrint(_impl.Persistent);
                 appFootPrint.Load(_impl.PackageName);
 
-                // 如果水印发生变化，则说明覆盖安装后首次打开游戏
+                // 如果水印发生变化，则说明覆盖安装后首次打开应用
                 if (appFootPrint.IsDirty())
                 {
                     _impl.Persistent.DeleteSandboxManifestFilesFolder();

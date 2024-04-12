@@ -30,7 +30,7 @@ namespace EFFramework.Editor
 
             bool autoFirstMatch = assetPath.Contains("Logger.cs") ||
                                    assetPath.Contains("DefaultLogHelper.cs") ||
-                                   assetPath.Contains("GameFrameworkLog.cs") ||
+                                   assetPath.Contains("EFFrameworkLog.cs") ||
                                    assetPath.Contains("AssetsLogger.cs") ||
                                    assetPath.Contains("Log.cs");
             
@@ -61,7 +61,7 @@ namespace EFFramework.Editor
 
                     if (!pathLine.Contains("Logger.cs") && 
                         !pathLine.Contains("DefaultLogHelper.cs") &&
-                        !pathLine.Contains("GameFrameworkLog.cs") && 
+                        !pathLine.Contains("EFFrameworkLog.cs") && 
                         !pathLine.Contains("AssetsLogger.cs") && 
                         !pathLine.Contains("Log.cs"))
                     {

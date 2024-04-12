@@ -19,7 +19,7 @@
         }
 
         /// <summary>
-        /// 获取游戏框架模块优先级。
+        /// 获取应用框架模块优先级。
         /// </summary>
         /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
         internal override int Priority
@@ -90,12 +90,12 @@
         {
             if (string.IsNullOrEmpty(path))
             {
-                throw new GameFrameworkException("Path is invalid.");
+                throw new FrameworkException("Path is invalid.");
             }
 
             if (debuggerWindow == null)
             {
-                throw new GameFrameworkException("Debugger window is invalid.");
+                throw new FrameworkException("Debugger window is invalid.");
             }
 
             _debuggerWindowRoot.RegisterDebuggerWindow(path, debuggerWindow);

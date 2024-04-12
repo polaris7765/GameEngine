@@ -8,13 +8,13 @@ namespace EFFramework
     public class DefaultVersionHelper : Version.IVersionHelper
     {
         /// <summary>
-        /// 获取游戏版本号。
+        /// 获取应用版本号。
         /// </summary>
-        public string GameVersion => Application.version;
+        public string AppVersion => Application.version;
 
         /// <summary>
-        /// 获取内部游戏版本号。
+        /// 获取内部应用版本号。
         /// </summary>
-        public string InternalGameVersion => string.Empty;
+        public string InternalAppVersion => string.Empty;
     }
 }

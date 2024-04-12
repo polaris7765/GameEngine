@@ -136,7 +136,7 @@ public class UIButtonSuper : Button, IBeginDragHandler, IDragHandler, IEndDragHa
                 return;
             }
 
-            downTime += GameTime.deltaTime;
+            downTime += AppTime.deltaTime;
             if (downTime > m_LongPressDurationTime)
             {
                 isPress = true;
@@ -153,7 +153,7 @@ public class UIButtonSuper : Button, IBeginDragHandler, IDragHandler, IEndDragHa
             }
             else
             {
-                clickIntervalTime += GameTime.deltaTime;
+                clickIntervalTime += AppTime.deltaTime;
                 if (clickIntervalTime >= m_DoubleClickIntervalTime)
                 {
                     if (clickTimes >= 2)
@@ -223,7 +223,7 @@ public class UIButtonSuper : Button, IBeginDragHandler, IDragHandler, IEndDragHa
             return;
         }
 
-        GameModule.Audio.Play(EFFramework.AudioType.Sound, buttonSound.ButtonUISoundName);
+        AppModule.Audio.Play(EFFramework.AudioType.Sound, buttonSound.ButtonUISoundName);
     }
 
     public override void OnPointerEnter(PointerEventData eventData)

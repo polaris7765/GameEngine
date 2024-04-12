@@ -269,12 +269,12 @@ namespace EFFramework
                     if (bAsync)
                     {
                         _audioAgentRuntimeState = AudioAgentRuntimeState.Loading;
-                        AssetHandle handle = GameModule.Resource.LoadAssetAsyncHandle<AudioClip>(path);
+                        AssetHandle handle = AppModule.Resource.LoadAssetAsyncHandle<AudioClip>(path);
                         handle.Completed += OnAssetLoadComplete;
                     }
                     else
                     {
-                        AssetHandle handle = GameModule.Resource.LoadAssetGetOperation<AudioClip>(path);
+                        AssetHandle handle = AppModule.Resource.LoadAssetGetOperation<AudioClip>(path);
                         OnAssetLoadComplete(handle);
                     }
                 }

@@ -260,18 +260,18 @@ namespace EFFramework
             {
                 if (isAsync)
                 {
-                    var uiInstance = await GameModule.Resource.LoadGameObjectAsync(location, parent: GameModule.UI.UIRoot);
+                    var uiInstance = await AppModule.Resource.LoadGameObjectAsync(location, parent: AppModule.UI.UIRoot);
                     Handle_Completed(uiInstance);
                 }
                 else
                 {
-                    var uiInstance = GameModule.Resource.LoadGameObject(location, parent: GameModule.UI.UIRoot);
+                    var uiInstance = AppModule.Resource.LoadGameObject(location, parent: AppModule.UI.UIRoot);
                     Handle_Completed(uiInstance);
                 }
             }
             else
             {
-                GameObject panel = Object.Instantiate(Resources.Load<GameObject>(location), GameModule.UI.UIRoot);
+                GameObject panel = Object.Instantiate(Resources.Load<GameObject>(location), AppModule.UI.UIRoot);
                 Handle_Completed(panel);
             }
         }
@@ -437,14 +437,14 @@ namespace EFFramework
 
         protected virtual void Close()
         {
-            GameModule.UI.CloseUI(this.GetType());
+            AppModule.UI.CloseUI(this.GetType());
         }
 
         internal void CancelHideToCloseTimer()
         {
             if (HideTimerId > 0)
             {
-                GameModule.Timer.RemoveTimer(HideTimerId);
+                AppModule.Timer.RemoveTimer(HideTimerId);
                 HideTimerId = 0;
             }
         }

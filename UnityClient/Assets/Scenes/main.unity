@@ -221,7 +221,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 4294967295
 --- !u!114 &553327093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,20 +405,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableProcedureTypeNames:
-  - GameMain.ProcedureClearCache
-  - GameMain.ProcedureCreateDownloader
-  - GameMain.ProcedureDownloadFile
-  - GameMain.ProcedureDownloadOver
-  - GameMain.ProcedureInitPackage
-  - GameMain.ProcedureInitResources
-  - GameMain.ProcedureLaunch
-  - GameMain.ProcedureLoadAssembly
-  - GameMain.ProcedurePreload
-  - GameMain.ProcedureSplash
-  - GameMain.ProcedureStartGame
-  - GameMain.ProcedureUpdateManifest
-  - GameMain.ProcedureUpdateVersion
-  entranceProcedureTypeName: GameMain.ProcedureLaunch
+  - AppMain.ProcedureClearCache
+  - AppMain.ProcedureCreateDownloader
+  - AppMain.ProcedureDownloadFile
+  - AppMain.ProcedureDownloadOver
+  - AppMain.ProcedureInitPackage
+  - AppMain.ProcedureInitResources
+  - AppMain.ProcedureLaunch
+  - AppMain.ProcedureLoadAssembly
+  - AppMain.ProcedurePreload
+  - AppMain.ProcedureSplash
+  - AppMain.ProcedureStartGame
+  - AppMain.ProcedureUpdateManifest
+  - AppMain.ProcedureUpdateVersion
+  entranceProcedureTypeName: AppMain.ProcedureLaunch
 --- !u!1 &709048974
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 1195690679}
   - component: {fileID: 1195690680}
   m_Layer: 0
-  m_Name: GameModule
+  m_Name: AppModule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -20,7 +20,7 @@ namespace EFFramework
             if (type == LogType.Exception)
             {
                 string des = $"客户端报错, \n#内容#：---{condition} \n#位置#：---{stacktrace}";
-                GameModule.UI.ShowUIAsync<LogUI>(des);
+                AppModule.UI.ShowUIAsync<LogUI>(des);
             }
         }
     }

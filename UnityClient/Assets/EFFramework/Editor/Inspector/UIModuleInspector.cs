@@ -3,7 +3,7 @@
 namespace EFFramework.Editor.Inspector
 {
     [CustomEditor(typeof(UIModule))]
-    internal sealed class UIModuleInspector : GameFrameworkInspector
+    internal sealed class UIModuleInspector : EFFrameworkInspector
     {
         private SerializedProperty m_InstanceRoot = null;
         private SerializedProperty m_enableErrorLog = null;

@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using EFFramework;
 
-namespace GameMain
+namespace AppMain
 {
 #pragma warning disable CS0649
     public class LoadStyle : MonoBehaviour

@@ -51,7 +51,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 游戏框架模块初始化。
+        /// 应用框架模块初始化。
         /// </summary>
         protected override void Awake()
         {
@@ -148,12 +148,12 @@ namespace EFFramework
         /// </summary>
         /// <param name="procedures">新的的流程。</param>
         /// <returns>是否重启成功。</returns>
-        /// <exception cref="GameFrameworkException">重启异常。</exception>
+        /// <exception cref="FrameworkException">重启异常。</exception>
         public bool RestartProcedure(params ProcedureBase[] procedures)
         {
             if (procedures == null || procedures.Length <= 0)
             {
-                throw new GameFrameworkException("RestartProcedure Failed procedures is invalid.");
+                throw new FrameworkException("RestartProcedure Failed procedures is invalid.");
             }
 
             IFsmManager fsmManager = ModuleImpSystem.GetModule<IFsmManager>();

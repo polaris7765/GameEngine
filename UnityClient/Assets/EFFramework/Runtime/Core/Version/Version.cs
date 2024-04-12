@@ -5,19 +5,19 @@
     /// </summary>
     public static partial class Version
     {
-        private const string GameFrameworkVersionString = "2024.03.18";
+        private const string FrameworkVersionString = "2024.04.10";
 
         private static IVersionHelper s_VersionHelper = null;
 
         /// <summary>
-        /// 获取游戏框架版本号。
+        /// 获取应用框架版本号。
         /// </summary>
-        public static string GameFrameworkVersion => GameFrameworkVersionString;
+        public static string FrameworkVersion => FrameworkVersionString;
 
         /// <summary>
-        /// 获取游戏版本号。
+        /// 获取应用版本号。
         /// </summary>
-        public static string GameVersion
+        public static string AppVersion
         {
             get
             {
@@ -26,14 +26,14 @@
                     return string.Empty;
                 }
 
-                return s_VersionHelper.GameVersion;
+                return s_VersionHelper.AppVersion;
             }
         }
 
         /// <summary>
-        /// 获取内部游戏版本号。
+        /// 获取内部应用版本号。
         /// </summary>
-        public static string InternalGameVersion
+        public static string InternalAppVersion
         {
             get
             {
@@ -42,7 +42,7 @@
                     return string.Empty;
                 }
 
-                return s_VersionHelper.InternalGameVersion;
+                return s_VersionHelper.InternalAppVersion;
             }
         }
 

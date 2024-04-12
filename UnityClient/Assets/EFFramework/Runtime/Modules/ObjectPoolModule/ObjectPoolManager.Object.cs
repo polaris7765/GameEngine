@@ -117,7 +117,7 @@ namespace EFFramework
             {
                 if (obj == null)
                 {
-                    throw new GameFrameworkException("Object is invalid.");
+                    throw new FrameworkException("Object is invalid.");
                 }
 
                 Object<T> internalObject = MemoryPool.Acquire<Object<T>>();
@@ -171,7 +171,7 @@ namespace EFFramework
                 _spawnCount--;
                 if (_spawnCount < 0)
                 {
-                    throw new GameFrameworkException(Utility.Text.Format("Object '{0}' spawn count is less than 0.", Name));
+                    throw new FrameworkException(Utility.Text.Format("Object '{0}' spawn count is less than 0.", Name));
                 }
             }
 

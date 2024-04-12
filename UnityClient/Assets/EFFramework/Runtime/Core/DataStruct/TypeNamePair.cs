@@ -30,7 +30,7 @@ namespace EFFramework
         {
             if (type == null)
             {
-                throw new GameFrameworkException("Type is invalid.");
+                throw new FrameworkException("Type is invalid.");
             }
 
             _type = type;
@@ -55,7 +55,7 @@ namespace EFFramework
         {
             if (_type == null)
             {
-                throw new GameFrameworkException("Type is invalid.");
+                throw new FrameworkException("Type is invalid.");
             }
 
             string typeName = _type.FullName;

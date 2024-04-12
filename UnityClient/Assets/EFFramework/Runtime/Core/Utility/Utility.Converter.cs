@@ -36,7 +36,7 @@ namespace EFFramework
             {
                 if (ScreenDpi <= 0)
                 {
-                    throw new GameFrameworkException("You must set screen DPI first.");
+                    throw new FrameworkException("You must set screen DPI first.");
                 }
 
                 return InchesToCentimeters * pixels / ScreenDpi;
@@ -51,7 +51,7 @@ namespace EFFramework
             {
                 if (ScreenDpi <= 0)
                 {
-                    throw new GameFrameworkException("You must set screen DPI first.");
+                    throw new FrameworkException("You must set screen DPI first.");
                 }
 
                 return CentimetersToInches * centimeters * ScreenDpi;
@@ -66,7 +66,7 @@ namespace EFFramework
             {
                 if (ScreenDpi <= 0)
                 {
-                    throw new GameFrameworkException("You must set screen DPI first.");
+                    throw new FrameworkException("You must set screen DPI first.");
                 }
 
                 return pixels / ScreenDpi;
@@ -81,7 +81,7 @@ namespace EFFramework
             {
                 if (ScreenDpi <= 0)
                 {
-                    throw new GameFrameworkException("You must set screen DPI first.");
+                    throw new FrameworkException("You must set screen DPI first.");
                 }
 
                 return inches * ScreenDpi;
@@ -119,12 +119,12 @@ namespace EFFramework
             {
                 if (buffer == null)
                 {
-                    throw new GameFrameworkException("Buffer is invalid.");
+                    throw new FrameworkException("Buffer is invalid.");
                 }
 
                 if (startIndex < 0 || startIndex + 1 > buffer.Length)
                 {
-                    throw new GameFrameworkException("Start index is invalid.");
+                    throw new FrameworkException("Start index is invalid.");
                 }
 
                 buffer[startIndex] = value ? (byte)1 : (byte)0;
@@ -237,12 +237,12 @@ namespace EFFramework
             {
                 if (buffer == null)
                 {
-                    throw new GameFrameworkException("Buffer is invalid.");
+                    throw new FrameworkException("Buffer is invalid.");
                 }
 
                 if (startIndex < 0 || startIndex + 2 > buffer.Length)
                 {
-                    throw new GameFrameworkException("Start index is invalid.");
+                    throw new FrameworkException("Start index is invalid.");
                 }
 
                 fixed (byte* valueRef = buffer)
@@ -358,12 +358,12 @@ namespace EFFramework
             {
                 if (buffer == null)
                 {
-                    throw new GameFrameworkException("Buffer is invalid.");
+                    throw new FrameworkException("Buffer is invalid.");
                 }
 
                 if (startIndex < 0 || startIndex + 4 > buffer.Length)
                 {
-                    throw new GameFrameworkException("Start index is invalid.");
+                    throw new FrameworkException("Start index is invalid.");
                 }
 
                 fixed (byte* valueRef = buffer)
@@ -479,12 +479,12 @@ namespace EFFramework
             {
                 if (buffer == null)
                 {
-                    throw new GameFrameworkException("Buffer is invalid.");
+                    throw new FrameworkException("Buffer is invalid.");
                 }
 
                 if (startIndex < 0 || startIndex + 8 > buffer.Length)
                 {
-                    throw new GameFrameworkException("Start index is invalid.");
+                    throw new FrameworkException("Start index is invalid.");
                 }
 
                 fixed (byte* valueRef = buffer)
@@ -719,12 +719,12 @@ namespace EFFramework
             {
                 if (value == null)
                 {
-                    throw new GameFrameworkException("Value is invalid.");
+                    throw new FrameworkException("Value is invalid.");
                 }
 
                 if (encoding == null)
                 {
-                    throw new GameFrameworkException("Encoding is invalid.");
+                    throw new FrameworkException("Encoding is invalid.");
                 }
 
                 return encoding.GetBytes(value);
@@ -754,12 +754,12 @@ namespace EFFramework
             {
                 if (value == null)
                 {
-                    throw new GameFrameworkException("Value is invalid.");
+                    throw new FrameworkException("Value is invalid.");
                 }
 
                 if (encoding == null)
                 {
-                    throw new GameFrameworkException("Encoding is invalid.");
+                    throw new FrameworkException("Encoding is invalid.");
                 }
 
                 return encoding.GetBytes(value, 0, value.Length, buffer, startIndex);
@@ -785,12 +785,12 @@ namespace EFFramework
             {
                 if (value == null)
                 {
-                    throw new GameFrameworkException("Value is invalid.");
+                    throw new FrameworkException("Value is invalid.");
                 }
 
                 if (encoding == null)
                 {
-                    throw new GameFrameworkException("Encoding is invalid.");
+                    throw new FrameworkException("Encoding is invalid.");
                 }
 
                 return encoding.GetString(value);
@@ -820,12 +820,12 @@ namespace EFFramework
             {
                 if (value == null)
                 {
-                    throw new GameFrameworkException("Value is invalid.");
+                    throw new FrameworkException("Value is invalid.");
                 }
 
                 if (encoding == null)
                 {
-                    throw new GameFrameworkException("Encoding is invalid.");
+                    throw new FrameworkException("Encoding is invalid.");
                 }
 
                 return encoding.GetString(value, startIndex, length);

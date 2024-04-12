@@ -36,7 +36,7 @@ namespace EFFramework
 
             if (_resourceManager == null)
             {
-                throw new GameFrameworkException($"ResourceManager is null.");
+                throw new FrameworkException($"ResourceManager is null.");
             }
 
             if (_sourceGameObject != null)
@@ -59,12 +59,12 @@ namespace EFFramework
         {
             if (source == null)
             {
-                throw new GameFrameworkException($"Source gameObject is null.");
+                throw new FrameworkException($"Source gameObject is null.");
             }
 
             if (source.scene.name != null)
             {
-                throw new GameFrameworkException($"Source gameObject is in scene.");
+                throw new FrameworkException($"Source gameObject is in scene.");
             }
 
             _resourceManager = resourceManager;
@@ -76,7 +76,7 @@ namespace EFFramework
         {
             if (source == null)
             {
-                throw new GameFrameworkException($"Source gameObject is null.");
+                throw new FrameworkException($"Source gameObject is null.");
             }
 
             _resourceManager = resourceManager;
@@ -89,12 +89,12 @@ namespace EFFramework
         {
             if (source == null)
             {
-                throw new GameFrameworkException($"Source gameObject is null.");
+                throw new FrameworkException($"Source gameObject is null.");
             }
 
             if (source.scene.name != null)
             {
-                throw new GameFrameworkException($"Source gameObject is in scene.");
+                throw new FrameworkException($"Source gameObject is in scene.");
             }
 
             GameObject instance = Object.Instantiate(source, parent);
@@ -105,12 +105,12 @@ namespace EFFramework
         {
             if (source == null)
             {
-                throw new GameFrameworkException($"Source gameObject is null.");
+                throw new FrameworkException($"Source gameObject is null.");
             }
 
             if (source.scene.name != null)
             {
-                throw new GameFrameworkException($"Source gameObject is in scene.");
+                throw new FrameworkException($"Source gameObject is in scene.");
             }
 
             return instance.GetOrAddComponent<AssetsReference>().Ref(source, resourceManager);
@@ -120,7 +120,7 @@ namespace EFFramework
         {
             if (source == null)
             {
-                throw new GameFrameworkException($"Source gameObject is null.");
+                throw new FrameworkException($"Source gameObject is null.");
             }
 
             return instance.GetOrAddComponent<AssetsReference>().Ref(source, resourceManager);

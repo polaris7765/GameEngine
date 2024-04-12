@@ -6,9 +6,9 @@ using Debug = UnityEngine.Debug;
 namespace EFFramework
 {
     /// <summary>
-    /// 默认游戏框架日志辅助。
+    /// 默认应用框架日志辅助。
     /// </summary>
-    public class DefaultLogHelper : GameFrameworkLog.ILogHelper
+    public class DefaultLogHelper : EFFrameworkLog.ILogHelper
     {
         private enum ELogLevel
         {
@@ -24,37 +24,37 @@ namespace EFFramework
         private static readonly StringBuilder _stringBuilder = new StringBuilder(1024);
 
         /// <summary>
-        /// 打印游戏日志。
+        /// 打印应用日志。
         /// </summary>
-        /// <param name="level">游戏框架日志等级。</param>
+        /// <param name="level">应用框架日志等级。</param>
         /// <param name="message">日志信息。</param>
-        /// <exception cref="GameFrameworkException">游戏框架异常类。</exception>
-        public void Log(GameFrameworkLogLevel level, object message)
+        /// <exception cref="FrameworkException">应用框架异常类。</exception>
+        public void Log(EFFrameworkLogLevel level, object message)
         {
             switch (level)
             {
-                case GameFrameworkLogLevel.Debug:
+                case EFFrameworkLogLevel.Debug:
                     LogImp(ELogLevel.Debug, Utility.Text.Format("<color=#888888>{0}</color>", message));
                     break;
 
-                case GameFrameworkLogLevel.Info:
+                case EFFrameworkLogLevel.Info:
                     LogImp(ELogLevel.Info, message.ToString());
                     break;
 
-                case GameFrameworkLogLevel.Warning:
+                case EFFrameworkLogLevel.Warning:
                     LogImp(ELogLevel.Warning, message.ToString());
                     break;
 
-                case GameFrameworkLogLevel.Error:
+                case EFFrameworkLogLevel.Error:
                     LogImp(ELogLevel.Error, message.ToString());
                     break;
 
-                case GameFrameworkLogLevel.Fatal:
+                case EFFrameworkLogLevel.Fatal:
                     LogImp(ELogLevel.Exception, message.ToString());
                     break;
 
                 default:
-                    throw new GameFrameworkException(message.ToString());
+                    throw new FrameworkException(message.ToString());
             }
         }
 

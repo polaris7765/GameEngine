@@ -11,7 +11,7 @@ namespace EFFramework
         private TimerManager _timerManager;
 
         /// <summary>
-        /// 游戏框架组件初始化。
+        /// 应用框架组件初始化。
         /// </summary>
         protected override void Awake()
         {
@@ -37,7 +37,7 @@ namespace EFFramework
         {
             if (_timerManager == null)
             {
-                throw new GameFrameworkException("TimerMgr is invalid.");
+                throw new FrameworkException("TimerMgr is invalid.");
             }
 
             return _timerManager.AddTimer(callback, time, isLoop, isUnscaled, args);
@@ -51,7 +51,7 @@ namespace EFFramework
         {
             if (_timerManager == null)
             {
-                throw new GameFrameworkException("TimerMgr is invalid.");
+                throw new FrameworkException("TimerMgr is invalid.");
             }
 
             _timerManager.Stop(timerId);
@@ -65,7 +65,7 @@ namespace EFFramework
         {
             if (_timerManager == null)
             {
-                throw new GameFrameworkException("TimerMgr is invalid.");
+                throw new FrameworkException("TimerMgr is invalid.");
             }
 
             _timerManager.Resume(timerId);
@@ -80,7 +80,7 @@ namespace EFFramework
         {
             if (_timerManager == null)
             {
-                throw new GameFrameworkException("TimerMgr is invalid.");
+                throw new FrameworkException("TimerMgr is invalid.");
             }
 
             return _timerManager.IsRunning(timerId);
@@ -93,7 +93,7 @@ namespace EFFramework
         {
             if (_timerManager == null)
             {
-                throw new GameFrameworkException("TimerMgr is invalid.");
+                throw new FrameworkException("TimerMgr is invalid.");
             }
 
             return _timerManager.GetLeftTime(timerId);
@@ -106,7 +106,7 @@ namespace EFFramework
         {
             if (_timerManager == null)
             {
-                throw new GameFrameworkException("TimerMgr is invalid.");
+                throw new FrameworkException("TimerMgr is invalid.");
             }
 
             _timerManager.Restart(timerId);
@@ -119,7 +119,7 @@ namespace EFFramework
         {
             if (_timerManager == null)
             {
-                throw new GameFrameworkException("TimerMgr is invalid.");
+                throw new FrameworkException("TimerMgr is invalid.");
             }
             
             _timerManager.Reset(timerId,callback,time,isLoop,isUnscaled);
@@ -132,7 +132,7 @@ namespace EFFramework
         {
             if (_timerManager == null)
             {
-                throw new GameFrameworkException("TimerMgr is invalid.");
+                throw new FrameworkException("TimerMgr is invalid.");
             }
             
             _timerManager.Reset(timerId, time,isLoop,isUnscaled);
@@ -147,7 +147,7 @@ namespace EFFramework
             if (_timerManager == null)
             {
                 Log.Fatal("TimerMgr is invalid.");
-                throw new GameFrameworkException("TimerMgr is invalid.");
+                throw new FrameworkException("TimerMgr is invalid.");
             }
 
             _timerManager.RemoveTimer(timerId);
@@ -161,7 +161,7 @@ namespace EFFramework
             if (_timerManager == null)
             {
                 Log.Fatal("TimerMgr is invalid.");
-                throw new GameFrameworkException("TimerMgr is invalid.");
+                throw new FrameworkException("TimerMgr is invalid.");
             }
 
             _timerManager.RemoveAllTimer();

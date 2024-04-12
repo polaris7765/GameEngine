@@ -1,7 +1,7 @@
 ﻿using EFFramework;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
-namespace GameMain
+namespace AppMain
 {
     /// <summary>
     /// 流程 => 清理缓存。
@@ -19,14 +19,14 @@ namespace GameMain
             
             UILoadMgr.Show(UIDefine.UILoadUpdate,$"清理未使用的缓存文件...");
             
-            var operation = GameModule.Resource.ClearUnusedCacheFilesAsync();
+            var operation = AppModule.Resource.ClearUnusedCacheFilesAsync();
             operation.Completed += Operation_Completed;
         }
         
         
         private void Operation_Completed(YooAsset.AsyncOperationBase obj)
         {
-            UILoadMgr.Show(UIDefine.UILoadUpdate,$"清理完成 即将进入游戏...");
+            UILoadMgr.Show(UIDefine.UILoadUpdate,$"清理完成 即将进入应用...");
             
             ChangeState<ProcedureLoadAssembly>(_procedureOwner);
         }

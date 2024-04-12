@@ -4,7 +4,7 @@ using UnityEngine;
 namespace EFFramework.Editor.Inspector
 {
     [CustomEditor(typeof(SettingModule))]
-    internal sealed class SettingModuleInspector : GameFrameworkInspector
+    internal sealed class SettingModuleInspector : EFFrameworkInspector
     {
         private HelperInfo<SettingHelperBase> m_SettingHelperInfo = new HelperInfo<SettingHelperBase>("Setting");
 

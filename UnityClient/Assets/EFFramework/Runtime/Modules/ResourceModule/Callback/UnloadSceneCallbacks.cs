@@ -26,7 +26,7 @@
         {
             if (unloadSceneSuccessCallback == null)
             {
-                throw new GameFrameworkException("Unload scene success callback is invalid.");
+                throw new FrameworkException("Unload scene success callback is invalid.");
             }
 
             m_UnloadSceneSuccessCallback = unloadSceneSuccessCallback;

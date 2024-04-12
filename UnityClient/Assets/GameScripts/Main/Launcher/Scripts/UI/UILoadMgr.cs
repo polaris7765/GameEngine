@@ -2,7 +2,7 @@
 using UnityEngine;
 using EFFramework;
 
-namespace GameMain
+namespace AppMain
 {
     public class UIDefine
     {
@@ -28,7 +28,7 @@ namespace GameMain
 
             _uiMap.Add(UIDefine.UILoadUpdate, typeof(UILoadUpdate));
             _uiMap.Add(UIDefine.UILoadTip, typeof(UILoadTip));
-            GameModule.UI.ShowUI<UILoadUpdate>();
+            AppModule.UI.ShowUI<UILoadUpdate>();
             _isInit = true;
         }
 
@@ -48,7 +48,7 @@ namespace GameMain
                 return;
             }
 
-            GameModule.UI.ShowUI(_uiMap[uiInfo], param);
+            AppModule.UI.ShowUI(_uiMap[uiInfo], param);
         }
 
         /// <summary>
@@ -56,8 +56,8 @@ namespace GameMain
         /// </summary>
         public static void HideAll()
         {
-            GameModule.UI.CloseUI<UILoadTip>();
-            GameModule.UI.CloseUI<UILoadUpdate>();
+            AppModule.UI.CloseUI<UILoadTip>();
+            AppModule.UI.CloseUI<UILoadUpdate>();
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 namespace EFFramework
 {
     /// <summary>
-    /// 音效管理，为游戏提供统一的音效播放接口。
+    /// 音效管理，为应用提供统一的音效播放接口。
     /// </summary>
     /// <remarks>场景3D音效挂到场景物件、技能3D音效挂到技能特效上，并在AudioSource的Output上设置对应分类的AudioMixerGroup</remarks>
     public class AudioModule : Module

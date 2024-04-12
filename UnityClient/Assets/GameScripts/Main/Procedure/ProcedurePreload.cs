@@ -7,7 +7,7 @@ using UnityEngine;
 using YooAsset;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
-namespace GameMain
+namespace AppMain
 {
     /// <summary>
     /// 预加载流程
@@ -42,7 +42,7 @@ namespace GameMain
 
             UILoadMgr.Show(UIDefine.UILoadUpdate, Utility.Text.Format(LoadText.Instance.Label_Load_Load_Progress, 0));
 
-            GameEvent.Send("UILoadUpdate.RefreshVersion");
+            AppEvent.Send("UILoadUpdate.RefreshVersion");
 
             PreloadResources().Forget();
         }
@@ -101,7 +101,7 @@ namespace GameMain
             float time = 0f;
             while (time < duration)
             {
-                time += GameTime.deltaTime;
+                time += AppTime.deltaTime;
                 var result = Mathf.Lerp(0, value, time / duration);
                 _progress = result;
                 yield return new WaitForEndOfFrame();
@@ -112,7 +112,7 @@ namespace GameMain
 
         private async UniTaskVoid PreloadResources()
         {
-            await SmoothValue(1f, 1.2f).ToUniTask(GameModule.Procedure);
+            await SmoothValue(1f, 1.2f).ToUniTask(AppModule.Procedure);
 
             await UniTask.Delay(TimeSpan.FromSeconds(2.5f));
 
@@ -124,11 +124,11 @@ namespace GameMain
 
         private void LoadAllConfig()
         {
-            if (GameModule.Resource.PlayMode == EPlayMode.EditorSimulateMode)
+            if (AppModule.Resource.PlayMode == EPlayMode.EditorSimulateMode)
             {
                 return;
             }
-            AssetInfo[] assetInfos = GameModule.Resource.GetAssetInfos("PRELOAD");
+            AssetInfo[] assetInfos = AppModule.Resource.GetAssetInfos("PRELOAD");
             foreach (var assetInfo in assetInfos)
             {
                 PreLoad(assetInfo.Address);
@@ -145,7 +145,7 @@ namespace GameMain
         private void PreLoad(string location)
         {
             _loadedFlag.Add(location, false);
-            GameModule.Resource.LoadAssetAsync(location, typeof(UnityEngine.Object), m_PreLoadAssetCallbacks, null);
+            AppModule.Resource.LoadAssetAsync(location, typeof(UnityEngine.Object), m_PreLoadAssetCallbacks, null);
         }
 
         private void OnPreLoadAssetFailure(string assetName, LoadResourceStatus status, string errormessage, object userdata)

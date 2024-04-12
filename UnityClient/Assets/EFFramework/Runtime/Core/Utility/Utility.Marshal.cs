@@ -27,7 +27,7 @@ namespace EFFramework
             {
                 if (ensureSize < 0)
                 {
-                    throw new GameFrameworkException("Ensure size is invalid.");
+                    throw new FrameworkException("Ensure size is invalid.");
                 }
 
                 if (_cachedHGlobalPtr == IntPtr.Zero || _cachedHGlobalSize < ensureSize)
@@ -74,7 +74,7 @@ namespace EFFramework
             {
                 if (structureSize < 0)
                 {
-                    throw new GameFrameworkException("Structure size is invalid.");
+                    throw new FrameworkException("Structure size is invalid.");
                 }
 
                 EnsureCachedHGlobalSize(structureSize);
@@ -131,22 +131,22 @@ namespace EFFramework
             {
                 if (structureSize < 0)
                 {
-                    throw new GameFrameworkException("Structure size is invalid.");
+                    throw new FrameworkException("Structure size is invalid.");
                 }
 
                 if (result == null)
                 {
-                    throw new GameFrameworkException("Result is invalid.");
+                    throw new FrameworkException("Result is invalid.");
                 }
 
                 if (startIndex < 0)
                 {
-                    throw new GameFrameworkException("Start index is invalid.");
+                    throw new FrameworkException("Start index is invalid.");
                 }
 
                 if (startIndex + structureSize > result.Length)
                 {
-                    throw new GameFrameworkException("Result length is not enough.");
+                    throw new FrameworkException("Result length is not enough.");
                 }
 
                 EnsureCachedHGlobalSize(structureSize);
@@ -201,22 +201,22 @@ namespace EFFramework
             {
                 if (structureSize < 0)
                 {
-                    throw new GameFrameworkException("Structure size is invalid.");
+                    throw new FrameworkException("Structure size is invalid.");
                 }
 
                 if (buffer == null)
                 {
-                    throw new GameFrameworkException("Buffer is invalid.");
+                    throw new FrameworkException("Buffer is invalid.");
                 }
 
                 if (startIndex < 0)
                 {
-                    throw new GameFrameworkException("Start index is invalid.");
+                    throw new FrameworkException("Start index is invalid.");
                 }
 
                 if (startIndex + structureSize > buffer.Length)
                 {
-                    throw new GameFrameworkException("Buffer length is not enough.");
+                    throw new FrameworkException("Buffer length is not enough.");
                 }
 
                 EnsureCachedHGlobalSize(structureSize);

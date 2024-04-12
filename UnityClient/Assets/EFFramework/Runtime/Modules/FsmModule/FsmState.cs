@@ -68,7 +68,7 @@ namespace EFFramework
             Fsm<T> fsmImplement = (Fsm<T>)fsm;
             if (fsmImplement == null)
             {
-                throw new GameFrameworkException("FSM is invalid.");
+                throw new FrameworkException("FSM is invalid.");
             }
 
             fsmImplement.ChangeState<TState>();
@@ -84,17 +84,17 @@ namespace EFFramework
             Fsm<T> fsmImplement = (Fsm<T>)fsm;
             if (fsmImplement == null)
             {
-                throw new GameFrameworkException("FSM is invalid.");
+                throw new FrameworkException("FSM is invalid.");
             }
 
             if (stateType == null)
             {
-                throw new GameFrameworkException("State type is invalid.");
+                throw new FrameworkException("State type is invalid.");
             }
 
             if (!typeof(FsmState<T>).IsAssignableFrom(stateType))
             {
-                throw new GameFrameworkException(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
+                throw new FrameworkException(Utility.Text.Format("State type '{0}' is invalid.", stateType.FullName));
             }
 
             fsmImplement.ChangeState(stateType);

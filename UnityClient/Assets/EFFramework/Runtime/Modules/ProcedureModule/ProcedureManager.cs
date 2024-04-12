@@ -20,7 +20,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取游戏框架模块优先级。
+        /// 获取应用框架模块优先级。
         /// </summary>
         /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
         internal override int Priority => -2;
@@ -34,7 +34,7 @@ namespace EFFramework
             {
                 if (_procedureFsm == null)
                 {
-                    throw new GameFrameworkException("You must initialize procedure first.");
+                    throw new FrameworkException("You must initialize procedure first.");
                 }
 
                 return (ProcedureBase)_procedureFsm.CurrentState;
@@ -50,7 +50,7 @@ namespace EFFramework
             {
                 if (_procedureFsm == null)
                 {
-                    throw new GameFrameworkException("You must initialize procedure first.");
+                    throw new FrameworkException("You must initialize procedure first.");
                 }
 
                 return _procedureFsm.CurrentStateTime;
@@ -92,7 +92,7 @@ namespace EFFramework
         {
             if (fsmManager == null)
             {
-                throw new GameFrameworkException("FSM manager is invalid.");
+                throw new FrameworkException("FSM manager is invalid.");
             }
 
             _fsmManager = fsmManager;
@@ -107,7 +107,7 @@ namespace EFFramework
         {
             if (_procedureFsm == null)
             {
-                throw new GameFrameworkException("You must initialize procedure first.");
+                throw new FrameworkException("You must initialize procedure first.");
             }
 
             _procedureFsm.Start<T>();
@@ -121,7 +121,7 @@ namespace EFFramework
         {
             if (_procedureFsm == null)
             {
-                throw new GameFrameworkException("You must initialize procedure first.");
+                throw new FrameworkException("You must initialize procedure first.");
             }
 
             _procedureFsm.Start(procedureType);
@@ -136,7 +136,7 @@ namespace EFFramework
         {
             if (_procedureFsm == null)
             {
-                throw new GameFrameworkException("You must initialize procedure first.");
+                throw new FrameworkException("You must initialize procedure first.");
             }
 
             return _procedureFsm.HasState<T>();
@@ -151,7 +151,7 @@ namespace EFFramework
         {
             if (_procedureFsm == null)
             {
-                throw new GameFrameworkException("You must initialize procedure first.");
+                throw new FrameworkException("You must initialize procedure first.");
             }
 
             return _procedureFsm.HasState(procedureType);
@@ -166,7 +166,7 @@ namespace EFFramework
         {
             if (_procedureFsm == null)
             {
-                throw new GameFrameworkException("You must initialize procedure first.");
+                throw new FrameworkException("You must initialize procedure first.");
             }
 
             return _procedureFsm.GetState<T>();
@@ -181,7 +181,7 @@ namespace EFFramework
         {
             if (_procedureFsm == null)
             {
-                throw new GameFrameworkException("You must initialize procedure first.");
+                throw new FrameworkException("You must initialize procedure first.");
             }
 
             return (ProcedureBase)_procedureFsm.GetState(procedureType);

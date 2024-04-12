@@ -13,7 +13,7 @@ namespace YooAsset
     internal class DebugReport
     {
         /// <summary>
-        /// 游戏帧
+        /// 应用帧
         /// </summary>
         public int FrameCount;
 

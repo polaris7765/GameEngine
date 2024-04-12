@@ -50,7 +50,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取或设置游戏帧率。
+        /// 获取或设置应用帧率。
         /// </summary>
         public int FrameRate
         {
@@ -59,7 +59,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取或设置游戏速度。
+        /// 获取或设置应用速度。
         /// </summary>
         public float GameSpeed
         {
@@ -68,12 +68,12 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取游戏是否暂停。
+        /// 获取应用是否暂停。
         /// </summary>
         public bool IsGamePaused => m_GameSpeed <= 0f;
 
         /// <summary>
-        /// 获取是否正常游戏速度。
+        /// 获取是否正常应用速度。
         /// </summary>
         public bool IsNormalGameSpeed => Math.Abs(m_GameSpeed - 1f) < 0.01f;
 
@@ -100,7 +100,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 游戏框架模块初始化。
+        /// 应用框架模块初始化。
         /// </summary>
         protected override void Awake()
         {
@@ -109,8 +109,8 @@ namespace EFFramework
             InitTextHelper();
             InitVersionHelper();
             InitLogHelper();
-            Log.Info("EFFramework Version: {0}", Version.GameFrameworkVersion);
-            Log.Info("Game Version: {0} ({1})", Version.GameVersion, Version.InternalGameVersion);
+            Log.Info("EFFramework Version: {0}", Version.FrameworkVersion);
+            Log.Info("Game Version: {0} ({1})", Version.AppVersion, Version.InternalAppVersion);
             Log.Info("Unity Version: {0}", Application.unityVersion);
 
             InitJsonHelper();
@@ -127,23 +127,23 @@ namespace EFFramework
             Screen.sleepTimeout = m_NeverSleep ? SleepTimeout.NeverSleep : SleepTimeout.SystemSetting;
 
             Application.lowMemory += OnLowMemory;
-            GameTime.StartFrame();
+            AppTime.StartFrame();
         }
 
         private void Update()
         {
-            GameTime.StartFrame();
-            ModuleImpSystem.Update(GameTime.deltaTime, GameTime.unscaledDeltaTime);
+            AppTime.StartFrame();
+            ModuleImpSystem.Update(AppTime.deltaTime, AppTime.unscaledDeltaTime);
         }
 
         private void FixedUpdate()
         {
-            GameTime.StartFrame();
+            AppTime.StartFrame();
         }
 
         private void LateUpdate()
         {
-            GameTime.StartFrame();
+            AppTime.StartFrame();
         }
 
         private void OnApplicationQuit()
@@ -158,7 +158,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 暂停游戏。
+        /// 暂停应用。
         /// </summary>
         public void PauseGame()
         {
@@ -172,7 +172,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 恢复游戏。
+        /// 恢复应用。
         /// </summary>
         public void ResumeGame()
         {
@@ -185,7 +185,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 重置为正常游戏速度。
+        /// 重置为正常应用速度。
         /// </summary>
         public void ResetNormalGameSpeed()
         {
@@ -236,13 +236,13 @@ namespace EFFramework
             Type versionHelperType = Utility.Assembly.GetType(m_VersionHelperTypeName);
             if (versionHelperType == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Can not find version helper type '{0}'.", m_VersionHelperTypeName));
+                throw new FrameworkException(Utility.Text.Format("Can not find version helper type '{0}'.", m_VersionHelperTypeName));
             }
 
             Version.IVersionHelper versionHelper = (Version.IVersionHelper)Activator.CreateInstance(versionHelperType);
             if (versionHelper == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Can not create version helper instance '{0}'.", m_VersionHelperTypeName));
+                throw new FrameworkException(Utility.Text.Format("Can not create version helper instance '{0}'.", m_VersionHelperTypeName));
             }
 
             Version.SetVersionHelper(versionHelper);
@@ -258,16 +258,16 @@ namespace EFFramework
             Type logHelperType = Utility.Assembly.GetType(m_LogHelperTypeName);
             if (logHelperType == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Can not find log helper type '{0}'.", m_LogHelperTypeName));
+                throw new FrameworkException(Utility.Text.Format("Can not find log helper type '{0}'.", m_LogHelperTypeName));
             }
 
-            GameFrameworkLog.ILogHelper logHelper = (GameFrameworkLog.ILogHelper)Activator.CreateInstance(logHelperType);
+            EFFrameworkLog.ILogHelper logHelper = (EFFrameworkLog.ILogHelper)Activator.CreateInstance(logHelperType);
             if (logHelper == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Can not create log helper instance '{0}'.", m_LogHelperTypeName));
+                throw new FrameworkException(Utility.Text.Format("Can not create log helper instance '{0}'.", m_LogHelperTypeName));
             }
 
-            GameFrameworkLog.SetLogHelper(logHelper);
+            EFFrameworkLog.SetLogHelper(logHelper);
         }
 
         private void InitJsonHelper()

@@ -15,7 +15,7 @@ namespace EFFramework
             {
                 return;
             }
-            GameModule.Resource.UnloadAsset(Target);
+            AppModule.Resource.UnloadAsset(Target);
         }
     }
 }

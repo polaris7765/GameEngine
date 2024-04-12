@@ -49,7 +49,7 @@ namespace EFFramework
             {
                 if (string.IsNullOrEmpty(directoryName))
                 {
-                    throw new GameFrameworkException("Directory name is invalid.");
+                    throw new FrameworkException("Directory name is invalid.");
                 }
 
                 try

@@ -5,7 +5,7 @@ using YooAsset;
 using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 using Utility = EFFramework.Utility;
 
-namespace GameMain
+namespace AppMain
 {
     public class ProcedureDownloadFile:ProcedureBase
     {
@@ -18,9 +18,9 @@ namespace GameMain
         {
             get
             {
-                float interval = GameTime.deltaTime;
-                var sizeDiff = GameModule.Resource.Downloader.CurrentDownloadBytes - _lastUpdateDownloadedSize;
-                _lastUpdateDownloadedSize = GameModule.Resource.Downloader.CurrentDownloadBytes;
+                float interval = AppTime.deltaTime;
+                var sizeDiff = AppModule.Resource.Downloader.CurrentDownloadBytes - _lastUpdateDownloadedSize;
+                _lastUpdateDownloadedSize = AppModule.Resource.Downloader.CurrentDownloadBytes;
                 var speed = (float)Math.Floor(sizeDiff / interval);
                 return speed;
             }
@@ -39,7 +39,7 @@ namespace GameMain
         
         private async UniTaskVoid BeginDownload()
         {
-            var downloader = GameModule.Resource.Downloader;
+            var downloader = AppModule.Resource.Downloader;
 
             // 注册下载回调
             downloader.OnDownloadErrorCallback = OnDownloadErrorCallback;
@@ -71,9 +71,9 @@ namespace GameMain
                 totalDownloadCount.ToString(), 
                 Utility.File.GetByteLengthString(currentDownloadBytes), 
                 Utility.File.GetByteLengthString(totalDownloadBytes), 
-                GameModule.Resource.Downloader.Progress, 
+                AppModule.Resource.Downloader.Progress, 
                 Utility.File.GetLengthString((int)CurrentSpeed));
-            LoadUpdateLogic.Instance.DownProgressAction?.Invoke(GameModule.Resource.Downloader.Progress);
+            LoadUpdateLogic.Instance.DownProgressAction?.Invoke(AppModule.Resource.Downloader.Progress);
             UILoadMgr.Show(UIDefine.UILoadUpdate,descriptionText);
 
             int needTime = 0;

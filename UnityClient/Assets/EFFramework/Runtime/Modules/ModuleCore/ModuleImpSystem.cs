@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace EFFramework
 {
     /// <summary>
-    /// 游戏框架模块实现类管理系统。
+    /// 应用框架模块实现类管理系统。
     /// </summary>
     public static class ModuleImpSystem
     {
@@ -16,12 +16,12 @@ namespace EFFramework
         private const string ModuleRootNameSpace = "EFFramework.";
 
         private static readonly Dictionary<Type, ModuleImp> _moduleMaps = new Dictionary<Type, ModuleImp>(DesignModuleCount);
-        private static readonly GameFrameworkLinkedList<ModuleImp> _modules = new GameFrameworkLinkedList<ModuleImp>();
-        private static readonly GameFrameworkLinkedList<ModuleImp> _updateModules = new GameFrameworkLinkedList<ModuleImp>();
+        private static readonly FrameworkLinkedList<ModuleImp> _modules = new FrameworkLinkedList<ModuleImp>();
+        private static readonly FrameworkLinkedList<ModuleImp> _updateModules = new FrameworkLinkedList<ModuleImp>();
         private static readonly List<ModuleImp> _updateExecuteList = new List<ModuleImp>(DesignModuleCount);
 
         /// <summary>
-        /// 所有游戏框架模块轮询。
+        /// 所有应用框架模块轮询。
         /// </summary>
         /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
         /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
@@ -35,7 +35,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 关闭并清理所有游戏框架模块。
+        /// 关闭并清理所有应用框架模块。
         /// </summary>
         public static void Shutdown()
         {
@@ -53,18 +53,18 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取游戏框架模块。
+        /// 获取应用框架模块。
         /// </summary>
-        /// <typeparam name="T">要获取的游戏框架模块类型。</typeparam>
-        /// <returns>要获取的游戏框架模块。</returns>
-        /// <remarks>如果要获取的游戏框架模块不存在，则自动创建该游戏框架模块。</remarks>
+        /// <typeparam name="T">要获取的应用框架模块类型。</typeparam>
+        /// <returns>要获取的应用框架模块。</returns>
+        /// <remarks>如果要获取的应用框架模块不存在，则自动创建该应用框架模块。</remarks>
         public static T GetModule<T>() where T : class
         {
             Type module = typeof(T);
 
             if (module.FullName != null && !module.FullName.StartsWith(ModuleRootNameSpace, StringComparison.Ordinal))
             {
-                throw new GameFrameworkException(Utility.Text.Format("You must get a Framework module, but '{0}' is not.", module.FullName));
+                throw new FrameworkException(Utility.Text.Format("You must get a Framework module, but '{0}' is not.", module.FullName));
             }
 
             string moduleName = Utility.Text.Format("{0}.{1}", module.Namespace, module.Name.Substring(1));
@@ -75,7 +75,7 @@ namespace EFFramework
                 moduleType = Type.GetType(moduleName);
                 if (moduleType == null)
                 {
-                    throw new GameFrameworkException(Utility.Text.Format("Can not find Game Framework module type '{0}'.", moduleName));
+                    throw new FrameworkException(Utility.Text.Format("Can not find Game Framework module type '{0}'.", moduleName));
                 }
             }
 
@@ -83,27 +83,27 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取游戏框架模块。
+        /// 获取应用框架模块。
         /// </summary>
-        /// <param name="moduleType">要获取的游戏框架模块类型。</param>
-        /// <returns>要获取的游戏框架模块。</returns>
-        /// <remarks>如果要获取的游戏框架模块不存在，则自动创建该游戏框架模块。</remarks>
+        /// <param name="moduleType">要获取的应用框架模块类型。</param>
+        /// <returns>要获取的应用框架模块。</returns>
+        /// <remarks>如果要获取的应用框架模块不存在，则自动创建该应用框架模块。</remarks>
         private static ModuleImp GetModule(Type moduleType)
         {
             return _moduleMaps.TryGetValue(moduleType, out ModuleImp module) ? module : CreateModule(moduleType);
         }
 
         /// <summary>
-        /// 创建游戏框架模块。
+        /// 创建应用框架模块。
         /// </summary>
-        /// <param name="moduleType">要创建的游戏框架模块类型。</param>
-        /// <returns>要创建的游戏框架模块。</returns>
+        /// <param name="moduleType">要创建的应用框架模块类型。</param>
+        /// <returns>要创建的应用框架模块。</returns>
         private static ModuleImp CreateModule(Type moduleType)
         {
             ModuleImp moduleImp = (ModuleImp)Activator.CreateInstance(moduleType);
             if (moduleImp == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Can not create module '{0}'.", moduleType.FullName));
+                throw new FrameworkException(Utility.Text.Format("Can not create module '{0}'.", moduleType.FullName));
             }
 
             _moduleMaps[moduleType] = moduleImp;

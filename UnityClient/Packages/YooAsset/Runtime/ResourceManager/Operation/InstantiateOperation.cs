@@ -20,7 +20,7 @@ namespace YooAsset
         private ESteps _steps = ESteps.None;
 
         /// <summary>
-        /// 实例化的游戏对象
+        /// 实例化的应用对象
         /// </summary>
         public GameObject Result = null;
 
@@ -64,7 +64,7 @@ namespace YooAsset
                     return;
                 }
 
-                // 实例化游戏对象
+                // 实例化应用对象
                 Result = InstantiateInternal(_handle.AssetObject, _setPositionAndRotation, _position, _rotation, _parent, _worldPositionStays);
 
                 _steps = ESteps.Done;

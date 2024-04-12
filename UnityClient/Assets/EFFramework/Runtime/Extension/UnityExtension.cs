@@ -96,7 +96,7 @@ namespace EFFramework
         private static readonly List<Transform> CachedTransforms = new List<Transform>();
 
         /// <summary>
-        /// 递归设置游戏对象的层次。
+        /// 递归设置应用对象的层次。
         /// </summary>
         /// <param name="gameObject"><see cref="GameObject" /> 对象。</param>
         /// <param name="layer">目标层次的编号。</param>

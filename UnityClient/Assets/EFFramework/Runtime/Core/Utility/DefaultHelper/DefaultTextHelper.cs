@@ -24,7 +24,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -46,7 +46,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -70,7 +70,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -96,7 +96,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -124,7 +124,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -154,7 +154,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -186,7 +186,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -220,7 +220,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -256,7 +256,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -294,7 +294,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -334,7 +334,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -376,7 +376,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -420,7 +420,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -466,7 +466,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -514,7 +514,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();
@@ -564,7 +564,7 @@ namespace EFFramework
         {
             if (format == null)
             {
-                throw new GameFrameworkException("Format is invalid.");
+                throw new FrameworkException("Format is invalid.");
             }
 
             CheckCachedStringBuilder();

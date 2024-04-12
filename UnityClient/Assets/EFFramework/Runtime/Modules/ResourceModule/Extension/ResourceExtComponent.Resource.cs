@@ -11,7 +11,7 @@ namespace EFFramework
 
         private void InitializedResources()
         {
-            m_ResourceModule = GameModule.Get<ResourceModule>();
+            m_ResourceModule = AppModule.Get<ResourceModule>();
             m_LoadAssetCallbacks = new LoadAssetCallbacks(OnLoadAssetSuccess, OnLoadAssetFailure);
         }
 

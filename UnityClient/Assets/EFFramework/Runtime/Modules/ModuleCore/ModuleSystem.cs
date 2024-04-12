@@ -6,32 +6,32 @@ using UnityEngine.SceneManagement;
 namespace EFFramework
 {
     /// <summary>
-    /// 游戏框架模块管理系统。
+    /// 应用框架模块管理系统。
     /// </summary>
     public static class ModuleSystem
     {
-        private static readonly GameFrameworkLinkedList<Module> _modules = new GameFrameworkLinkedList<Module>();
+        private static readonly FrameworkLinkedList<Module> _modules = new FrameworkLinkedList<Module>();
 
         /// <summary>
-        /// 游戏框架所在的场景编号。
+        /// 应用框架所在的场景编号。
         /// </summary>
-        internal const int GameFrameworkSceneId = 0;
+        internal const int FrameworkSceneId = 0;
 
         /// <summary>
-        /// 获取游戏框架模块。
+        /// 获取应用框架模块。
         /// </summary>
-        /// <typeparam name="T">要获取的游戏框架模块类型。</typeparam>
-        /// <returns>要获取的游戏框架模块。</returns>
+        /// <typeparam name="T">要获取的应用框架模块类型。</typeparam>
+        /// <returns>要获取的应用框架模块。</returns>
         public static T GetModule<T>() where T : Module
         {
             return (T)GetModule(typeof(T));
         }
 
         /// <summary>
-        /// 获取游戏框架模块。
+        /// 获取应用框架模块。
         /// </summary>
-        /// <param name="type">要获取的游戏框架模块类型。</param>
-        /// <returns>要获取的游戏框架模块。</returns>
+        /// <param name="type">要获取的应用框架模块类型。</param>
+        /// <returns>要获取的应用框架模块。</returns>
         public static Module GetModule(Type type)
         {
             LinkedListNode<Module> current = _modules.First;
@@ -49,10 +49,10 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取游戏框架模块。
+        /// 获取应用框架模块。
         /// </summary>
-        /// <param name="typeName">要获取的游戏框架模块类型名称。</param>
-        /// <returns>要获取的游戏框架模块。</returns>
+        /// <param name="typeName">要获取的应用框架模块类型名称。</param>
+        /// <returns>要获取的应用框架模块。</returns>
         public static Module GetModule(string typeName)
         {
             LinkedListNode<Module> current = _modules.First;
@@ -71,9 +71,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 关闭游戏框架。
+        /// 关闭应用框架。
         /// </summary>
-        /// <param name="shutdownType">关闭游戏框架类型。</param>
+        /// <param name="shutdownType">关闭应用框架类型。</param>
         public static void Shutdown(ShutdownType shutdownType)
         {
             Log.Info("Shutdown Game Framework ({0})...", shutdownType);
@@ -86,7 +86,7 @@ namespace EFFramework
             }
             _modules.Clear();
 
-            GameModule.Shutdown(shutdownType);
+            AppModule.Shutdown(shutdownType);
             
             if (shutdownType == ShutdownType.None)
             {
@@ -95,7 +95,7 @@ namespace EFFramework
 
             if (shutdownType == ShutdownType.Restart)
             {
-                SceneManager.LoadScene(GameFrameworkSceneId);
+                SceneManager.LoadScene(FrameworkSceneId);
                 return;
             }
 
@@ -109,9 +109,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 注册游戏框架模块。
+        /// 注册应用框架模块。
         /// </summary>
-        /// <param name="module">要注册的游戏框架模块。</param>
+        /// <param name="module">要注册的应用框架模块。</param>
         internal static void RegisterModule(Module module)
         {
             if (module == null)

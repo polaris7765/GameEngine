@@ -13,7 +13,7 @@ public static class UIExtension
         float originalAlpha = canvasGroup.alpha;
         while (time < duration)
         {
-            time += GameTime.deltaTime;
+            time += AppTime.deltaTime;
             canvasGroup.alpha = Mathf.Lerp(originalAlpha, alpha, time / duration);
             yield return new WaitForEndOfFrame();
         }
@@ -29,7 +29,7 @@ public static class UIExtension
         float originalValue = slider.value;
         while (time < duration)
         {
-            time += GameTime.deltaTime;
+            time += AppTime.deltaTime;
             slider.value = Mathf.Lerp(originalValue, value, time / duration);
             yield return new WaitForEndOfFrame();
         }
@@ -45,7 +45,7 @@ public static class UIExtension
         float originalValue = slider.size;
         while (time < duration)
         {
-            time += GameTime.deltaTime;
+            time += AppTime.deltaTime;
             slider.size = Mathf.Lerp(originalValue, value, time / duration);
             yield return new WaitForEndOfFrame();
         }
@@ -61,7 +61,7 @@ public static class UIExtension
         float originalValue = image.fillAmount;
         while (time < duration)
         {
-            time += GameTime.deltaTime;
+            time += AppTime.deltaTime;
             image.fillAmount = Mathf.Lerp(originalValue, value, time / duration);
             yield return new WaitForEndOfFrame();
         }

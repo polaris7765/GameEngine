@@ -10,7 +10,7 @@ using EFFramework;
 using System.Reflection;
 using YooAsset;
 
-namespace GameMain
+namespace AppMain
 {
     /// <summary>
     /// 流程加载器 - 代码初始化
@@ -56,7 +56,7 @@ namespace GameMain
                 m_LoadMetadataAssemblyComplete = true;
             }
             
-            if (!SettingsUtils.HybridCLRCustomGlobalSettings.Enable || GameModule.Resource.PlayMode == EPlayMode.EditorSimulateMode)
+            if (!SettingsUtils.HybridCLRCustomGlobalSettings.Enable || AppModule.Resource.PlayMode == EPlayMode.EditorSimulateMode)
             {
                 m_MainLogicAssembly = GetMainLogicAssembly();
             }
@@ -78,7 +78,7 @@ namespace GameMain
                            
                         Log.Debug($"LoadAsset: [ {assetLocation} ]");
                         m_LoadAssetCount++;
-                        GameModule.Resource.LoadAsset<TextAsset>(assetLocation,LoadAssetSuccess);
+                        AppModule.Resource.LoadAsset<TextAsset>(assetLocation,LoadAssetSuccess);
                     }
 
                     m_LoadAssemblyWait = true;
@@ -120,10 +120,10 @@ namespace GameMain
                 Log.Fatal($"Main logic assembly missing.");
                 return;
             }
-            var appType = m_MainLogicAssembly.GetType("GameApp");
+            var appType = m_MainLogicAssembly.GetType("MainApp");
             if (appType == null)
             {
-                Log.Fatal($"Main logic type 'GameMain' missing.");
+                Log.Fatal($"Main logic type 'AppMain' missing.");
                 return;
             }
             var entryMethod = appType.GetMethod("Entrance");
@@ -201,7 +201,7 @@ namespace GameMain
             {
                 m_LoadAssemblyComplete = m_LoadAssemblyWait && 0 == m_LoadAssetCount;
             }
-            GameModule.Resource.UnloadAsset(textAsset);
+            AppModule.Resource.UnloadAsset(textAsset);
         }
 
         /// <summary>
@@ -235,7 +235,7 @@ namespace GameMain
                 
                 Log.Debug($"LoadMetadataAsset: [ {assetLocation} ]");
                 m_LoadMetadataAssetCount++;
-                GameModule.Resource.LoadAsset<TextAsset>(assetLocation,LoadMetadataAssetSuccess);
+                AppModule.Resource.LoadAsset<TextAsset>(assetLocation,LoadMetadataAssetSuccess);
             }
             m_LoadMetadataAssemblyWait = true;
         }
@@ -278,7 +278,7 @@ namespace GameMain
             {
                 m_LoadMetadataAssemblyComplete = m_LoadMetadataAssemblyWait && 0 == m_LoadMetadataAssetCount;
             }
-            GameModule.Resource.UnloadAsset(textAsset);
+            AppModule.Resource.UnloadAsset(textAsset);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 namespace EFFramework
 {
     /// <summary>
-    /// 默认游戏配置。
+    /// 默认应用配置。
     /// </summary>
     public sealed class DefaultSetting
     {
@@ -20,7 +20,7 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取游戏配置项数量。
+        /// 获取应用配置项数量。
         /// </summary>
         public int Count
         {
@@ -31,9 +31,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取所有游戏配置项的名称。
+        /// 获取所有应用配置项的名称。
         /// </summary>
-        /// <returns>所有游戏配置项的名称。</returns>
+        /// <returns>所有应用配置项的名称。</returns>
         public string[] GetAllSettingNames()
         {
             int index = 0;
@@ -47,14 +47,14 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 获取所有游戏配置项的名称。
+        /// 获取所有应用配置项的名称。
         /// </summary>
-        /// <param name="results">所有游戏配置项的名称。</param>
+        /// <param name="results">所有应用配置项的名称。</param>
         public void GetAllSettingNames(List<string> results)
         {
             if (results == null)
             {
-                throw new GameFrameworkException("Results is invalid.");
+                throw new FrameworkException("Results is invalid.");
             }
 
             results.Clear();
@@ -65,27 +65,27 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 检查是否存在指定游戏配置项。
+        /// 检查是否存在指定应用配置项。
         /// </summary>
-        /// <param name="settingName">要检查游戏配置项的名称。</param>
-        /// <returns>指定的游戏配置项是否存在。</returns>
+        /// <param name="settingName">要检查应用配置项的名称。</param>
+        /// <returns>指定的应用配置项是否存在。</returns>
         public bool HasSetting(string settingName)
         {
             return m_Settings.ContainsKey(settingName);
         }
 
         /// <summary>
-        /// 移除指定游戏配置项。
+        /// 移除指定应用配置项。
         /// </summary>
-        /// <param name="settingName">要移除游戏配置项的名称。</param>
-        /// <returns>是否移除指定游戏配置项成功。</returns>
+        /// <param name="settingName">要移除应用配置项的名称。</param>
+        /// <returns>是否移除指定应用配置项成功。</returns>
         public bool RemoveSetting(string settingName)
         {
             return m_Settings.Remove(settingName);
         }
 
         /// <summary>
-        /// 清空所有游戏配置项。
+        /// 清空所有应用配置项。
         /// </summary>
         public void RemoveAllSettings()
         {
@@ -93,9 +93,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 从指定游戏配置项中读取布尔值。
+        /// 从指定应用配置项中读取布尔值。
         /// </summary>
-        /// <param name="settingName">要获取游戏配置项的名称。</param>
+        /// <param name="settingName">要获取应用配置项的名称。</param>
         /// <returns>读取的布尔值。</returns>
         public bool GetBool(string settingName)
         {
@@ -110,10 +110,10 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 从指定游戏配置项中读取布尔值。
+        /// 从指定应用配置项中读取布尔值。
         /// </summary>
-        /// <param name="settingName">要获取游戏配置项的名称。</param>
-        /// <param name="defaultValue">当指定的游戏配置项不存在时，返回此默认值。</param>
+        /// <param name="settingName">要获取应用配置项的名称。</param>
+        /// <param name="defaultValue">当指定的应用配置项不存在时，返回此默认值。</param>
         /// <returns>读取的布尔值。</returns>
         public bool GetBool(string settingName, bool defaultValue)
         {
@@ -127,9 +127,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 向指定游戏配置项写入布尔值。
+        /// 向指定应用配置项写入布尔值。
         /// </summary>
-        /// <param name="settingName">要写入游戏配置项的名称。</param>
+        /// <param name="settingName">要写入应用配置项的名称。</param>
         /// <param name="value">要写入的布尔值。</param>
         public void SetBool(string settingName, bool value)
         {
@@ -137,9 +137,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 从指定游戏配置项中读取整数值。
+        /// 从指定应用配置项中读取整数值。
         /// </summary>
-        /// <param name="settingName">要获取游戏配置项的名称。</param>
+        /// <param name="settingName">要获取应用配置项的名称。</param>
         /// <returns>读取的整数值。</returns>
         public int GetInt(string settingName)
         {
@@ -154,10 +154,10 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 从指定游戏配置项中读取整数值。
+        /// 从指定应用配置项中读取整数值。
         /// </summary>
-        /// <param name="settingName">要获取游戏配置项的名称。</param>
-        /// <param name="defaultValue">当指定的游戏配置项不存在时，返回此默认值。</param>
+        /// <param name="settingName">要获取应用配置项的名称。</param>
+        /// <param name="defaultValue">当指定的应用配置项不存在时，返回此默认值。</param>
         /// <returns>读取的整数值。</returns>
         public int GetInt(string settingName, int defaultValue)
         {
@@ -171,9 +171,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 向指定游戏配置项写入整数值。
+        /// 向指定应用配置项写入整数值。
         /// </summary>
-        /// <param name="settingName">要写入游戏配置项的名称。</param>
+        /// <param name="settingName">要写入应用配置项的名称。</param>
         /// <param name="value">要写入的整数值。</param>
         public void SetInt(string settingName, int value)
         {
@@ -181,9 +181,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 从指定游戏配置项中读取浮点数值。
+        /// 从指定应用配置项中读取浮点数值。
         /// </summary>
-        /// <param name="settingName">要获取游戏配置项的名称。</param>
+        /// <param name="settingName">要获取应用配置项的名称。</param>
         /// <returns>读取的浮点数值。</returns>
         public float GetFloat(string settingName)
         {
@@ -198,10 +198,10 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 从指定游戏配置项中读取浮点数值。
+        /// 从指定应用配置项中读取浮点数值。
         /// </summary>
-        /// <param name="settingName">要获取游戏配置项的名称。</param>
-        /// <param name="defaultValue">当指定的游戏配置项不存在时，返回此默认值。</param>
+        /// <param name="settingName">要获取应用配置项的名称。</param>
+        /// <param name="defaultValue">当指定的应用配置项不存在时，返回此默认值。</param>
         /// <returns>读取的浮点数值。</returns>
         public float GetFloat(string settingName, float defaultValue)
         {
@@ -215,9 +215,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 向指定游戏配置项写入浮点数值。
+        /// 向指定应用配置项写入浮点数值。
         /// </summary>
-        /// <param name="settingName">要写入游戏配置项的名称。</param>
+        /// <param name="settingName">要写入应用配置项的名称。</param>
         /// <param name="value">要写入的浮点数值。</param>
         public void SetFloat(string settingName, float value)
         {
@@ -225,9 +225,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 从指定游戏配置项中读取字符串值。
+        /// 从指定应用配置项中读取字符串值。
         /// </summary>
-        /// <param name="settingName">要获取游戏配置项的名称。</param>
+        /// <param name="settingName">要获取应用配置项的名称。</param>
         /// <returns>读取的字符串值。</returns>
         public string GetString(string settingName)
         {
@@ -242,10 +242,10 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 从指定游戏配置项中读取字符串值。
+        /// 从指定应用配置项中读取字符串值。
         /// </summary>
-        /// <param name="settingName">要获取游戏配置项的名称。</param>
-        /// <param name="defaultValue">当指定的游戏配置项不存在时，返回此默认值。</param>
+        /// <param name="settingName">要获取应用配置项的名称。</param>
+        /// <param name="defaultValue">当指定的应用配置项不存在时，返回此默认值。</param>
         /// <returns>读取的字符串值。</returns>
         public string GetString(string settingName, string defaultValue)
         {
@@ -259,9 +259,9 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 向指定游戏配置项写入字符串值。
+        /// 向指定应用配置项写入字符串值。
         /// </summary>
-        /// <param name="settingName">要写入游戏配置项的名称。</param>
+        /// <param name="settingName">要写入应用配置项的名称。</param>
         /// <param name="value">要写入的字符串值。</param>
         public void SetString(string settingName, string value)
         {

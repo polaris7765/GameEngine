@@ -2,7 +2,7 @@
 using Cysharp.Threading.Tasks;
 using EFFramework;
 
-namespace GameMain
+namespace AppMain
 {
     public class ProcedureStartGame : ProcedureBase
     {

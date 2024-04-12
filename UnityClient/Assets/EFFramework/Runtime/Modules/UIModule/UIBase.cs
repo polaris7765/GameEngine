@@ -195,15 +195,15 @@ namespace EFFramework
 
         #region UIEvent
 
-        private GameEventMgr _eventMgr;
+        private AppEventMgr _eventMgr;
 
-        protected GameEventMgr EventMgr
+        protected AppEventMgr EventMgr
         {
             get
             {
                 if (_eventMgr == null)
                 {
-                    _eventMgr = MemoryPool.Acquire<GameEventMgr>();
+                    _eventMgr = MemoryPool.Acquire<AppEventMgr>();
                 }
 
                 return _eventMgr;
@@ -289,10 +289,10 @@ namespace EFFramework
         }
 
         /// <summary>
-        /// 创建UIWidget通过游戏物体。
+        /// 创建UIWidget通过应用物体。
         /// <remarks>因为资源实例已经存在父物体所以不需要异步。</remarks>
         /// </summary>
-        /// <param name="goRoot">游戏物体。</param>
+        /// <param name="goRoot">应用物体。</param>
         /// <param name="visible">是否可见。</param>
         /// <typeparam name="T">UIWidget。</typeparam>
         /// <returns>UIWidget实例。</returns>
@@ -317,7 +317,7 @@ namespace EFFramework
         /// <returns>UIWidget实例。</returns>
         public T CreateWidgetByPath<T>(Transform parentTrans, string assetLocation, bool visible = true) where T : UIWidget, new()
         {
-            GameObject goInst = GameModule.Resource.LoadGameObject(assetLocation, parent: parentTrans);
+            GameObject goInst = AppModule.Resource.LoadGameObject(assetLocation, parent: parentTrans);
             return CreateWidget<T>(goInst, visible);
         }
 
@@ -331,7 +331,7 @@ namespace EFFramework
         /// <returns>UIWidget实例。</returns>
         public async UniTask<T> CreateWidgetByPathAsync<T>(Transform parentTrans, string assetLocation, bool visible = true) where T : UIWidget, new()
         {
-            GameObject goInst = await GameModule.Resource.LoadGameObjectAsync(assetLocation, gameObject.GetCancellationTokenOnDestroy(), parent: parentTrans);
+            GameObject goInst = await AppModule.Resource.LoadGameObjectAsync(assetLocation, gameObject.GetCancellationTokenOnDestroy(), parent: parentTrans);
             return CreateWidget<T>(goInst, visible);
         }
 

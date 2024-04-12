@@ -64,7 +64,7 @@ namespace EFFramework
         private IResourceManager m_ResourceManager;
 
         /// <summary>
-        /// 游戏框架组件初始化。
+        /// 应用框架组件初始化。
         /// </summary>
         protected override void Awake()
         {

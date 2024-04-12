@@ -237,7 +237,7 @@ namespace EFFramework.Editor
 
             BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions
             {
-                scenes = new[] { "Assets/Scenes/main.unity" },
+                scenes = new[] { "Assets/Scenes/Main.unity" },
                 locationPathName = locationPathName,
                 targetGroup = buildTargetGroup,
                 target = buildTarget,

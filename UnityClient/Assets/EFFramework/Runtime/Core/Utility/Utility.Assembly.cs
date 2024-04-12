@@ -50,7 +50,7 @@ namespace EFFramework
             {
                 if (results == null)
                 {
-                    throw new GameFrameworkException("Results is invalid.");
+                    throw new FrameworkException("Results is invalid.");
                 }
 
                 results.Clear();
@@ -69,7 +69,7 @@ namespace EFFramework
             {
                 if (string.IsNullOrEmpty(typeName))
                 {
-                    throw new GameFrameworkException("Type name is invalid.");
+                    throw new FrameworkException("Type name is invalid.");
                 }
 
                 Type type = null;
