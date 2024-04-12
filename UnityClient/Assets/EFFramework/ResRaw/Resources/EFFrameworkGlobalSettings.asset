@@ -90,7 +90,7 @@ MonoBehaviour:
     - UnityEngine.CoreModule.dll
     - YooAsset.dll
     - UniTask.dll
-    - EFFramwork.Runtime.dll
+    - EFFramework.Runtime.dll
     LogicMainDllName: AppLogic.dll
     AssemblyTextAssetExtension: .bytes
     AssemblyTextAssetPath: AssetRaw/DLL
