@@ -30,7 +30,7 @@ namespace AppMain
         {
             _procedureOwner = procedureOwner;
             
-            Log.Info("开始下载更新文件！");
+            EFLogger.Info("开始下载更新文件！");
             
             UILoadMgr.Show(UIDefine.UILoadUpdate,$"开始下载更新文件...");
             
@@ -85,7 +85,7 @@ namespace AppMain
             TimeSpan ts = new TimeSpan(0, 0, needTime);
             string timeStr = ts.ToString(@"mm\:ss");
             string updateProgress = Utility.Text.Format("剩余时间 {0}({1}/s)", timeStr, Utility.File.GetLengthString((int)CurrentSpeed));
-            Log.Info(updateProgress);
+            EFLogger.Info(updateProgress);
         }
     }
 }

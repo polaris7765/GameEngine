@@ -232,20 +232,20 @@ namespace EFFramework
             RootModule rootModule = ModuleSystem.GetModule<RootModule>();
             if (rootModule == null)
             {
-                Log.Fatal("Root module is invalid.");
+                EFLogger.Fatal("Root module is invalid.");
                 return;
             }
 
             m_ResourceManager = ModuleImpSystem.GetModule<IResourceManager>();
             if (m_ResourceManager == null)
             {
-                Log.Fatal("Resource module is invalid.");
+                EFLogger.Fatal("Resource module is invalid.");
                 return;
             }
 
             if (PlayMode == EPlayMode.EditorSimulateMode)
             {
-                Log.Info("During this run, Game Framework will use editor resource files, which you should validate first.");
+                EFLogger.Info("During this run, Game Framework will use editor resource files, which you should validate first.");
 #if !UNITY_EDITOR
                 PlayMode = EPlayMode.OfflinePlayMode;
 #endif
@@ -277,7 +277,7 @@ namespace EFFramework
             m_ResourceManager.AssetCapacity = m_AssetCapacity;
             m_ResourceManager.AssetExpireTime = m_AssetExpireTime;
             m_ResourceManager.AssetPriority = m_AssetPriority;
-            Log.Info($"ResourceComponent Run Mode：{PlayMode}");
+            EFLogger.Info($"ResourceComponent Run Mode：{PlayMode}");
         }
 
         /// <summary>
@@ -288,7 +288,7 @@ namespace EFFramework
         {
             if (m_ResourceManager == null)
             {
-                Log.Fatal("Resource component is invalid.");
+                EFLogger.Fatal("Resource component is invalid.");
                 return null;
             }
 
@@ -480,7 +480,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                Log.Error("Asset name is invalid.");
+                EFLogger.Error("Asset name is invalid.");
                 return;
             }
 
@@ -498,7 +498,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                Log.Error("Asset name is invalid.");
+                EFLogger.Error("Asset name is invalid.");
                 return null;
             }
 
@@ -516,7 +516,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                Log.Error("Asset name is invalid.");
+                EFLogger.Error("Asset name is invalid.");
                 return null;
             }
 
@@ -534,7 +534,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                Log.Error("Asset name is invalid.");
+                EFLogger.Error("Asset name is invalid.");
                 return;
             }
             
@@ -554,7 +554,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                Log.Error("Asset name is invalid.");
+                EFLogger.Error("Asset name is invalid.");
                 return null;
             }
 
@@ -575,7 +575,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                Log.Error("Asset name is invalid.");
+                EFLogger.Error("Asset name is invalid.");
                 return null;
             }
 
@@ -657,7 +657,7 @@ namespace EFFramework
             if (m_AsyncOperation == null && (m_ForceUnloadUnusedAssets || m_LastUnloadUnusedAssetsOperationElapseSeconds >= m_MaxUnloadUnusedAssetsInterval ||
                                              m_PreorderUnloadUnusedAssets && m_LastUnloadUnusedAssetsOperationElapseSeconds >= m_MinUnloadUnusedAssetsInterval))
             {
-                Log.Info("Unload unused assets...");
+                EFLogger.Info("Unload unused assets...");
                 m_ForceUnloadUnusedAssets = false;
                 m_PreorderUnloadUnusedAssets = false;
                 m_LastUnloadUnusedAssetsOperationElapseSeconds = 0f;
@@ -669,7 +669,7 @@ namespace EFFramework
                 m_AsyncOperation = null;
                 if (m_PerformGCCollect)
                 {
-                    Log.Info("GC.Collect...");
+                    EFLogger.Info("GC.Collect...");
                     m_PerformGCCollect = false;
                     GC.Collect();
                 }

@@ -128,7 +128,7 @@ namespace EFFramework
                 _settingModule = ModuleSystem.GetModule<SettingModule>();
                 if (_settingModule == null)
                 {
-                    Log.Fatal("Setting component is invalid.");
+                    EFLogger.Fatal("Setting component is invalid.");
                     return;
                 }
 
@@ -323,7 +323,7 @@ namespace EFFramework
             {
                 if (results == null)
                 {
-                    Log.Error("Results is invalid.");
+                    EFLogger.Error("Results is invalid.");
                     return;
                 }
 
@@ -338,13 +338,13 @@ namespace EFFramework
             {
                 if (results == null)
                 {
-                    Log.Error("Results is invalid.");
+                    EFLogger.Error("Results is invalid.");
                     return;
                 }
 
                 if (count <= 0)
                 {
-                    Log.Error("Count is invalid.");
+                    EFLogger.Error("Count is invalid.");
                     return;
                 }
 

@@ -13,7 +13,7 @@ namespace EFFramework
                 _mObjectPoolModule = ModuleSystem.GetModule<ObjectPoolModule>();
                 if (_mObjectPoolModule == null)
                 {
-                    Log.Fatal("Object pool component is invalid.");
+                    EFLogger.Fatal("Object pool component is invalid.");
                     return;
                 }
             }

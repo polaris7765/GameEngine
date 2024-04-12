@@ -22,14 +22,14 @@ namespace EFFramework
                 _mDebuggerModule = ModuleSystem.GetModule<DebuggerModule>();
                 if (_mDebuggerModule == null)
                 {
-                    Log.Fatal("Debugger component is invalid.");
+                    EFLogger.Fatal("Debugger component is invalid.");
                     return;
                 }
 
                 _mSettingModule = ModuleSystem.GetModule<SettingModule>();
                 if (_mSettingModule == null)
                 {
-                    Log.Fatal("Setting component is invalid.");
+                    EFLogger.Fatal("Setting component is invalid.");
                     return;
                 }
 

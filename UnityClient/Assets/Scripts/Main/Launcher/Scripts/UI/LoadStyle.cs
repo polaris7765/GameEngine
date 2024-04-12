@@ -119,14 +119,14 @@ namespace AppMain
 
             if (loadConfig == null)
             {
-                Log.Error("LoadConfig is null");
+                EFLogger.Error("LoadConfig is null");
                 return;
             }
 
             var style = loadConfig[type];
             if (style == null)
             {
-                Log.Error($"LoadConfig, Can not find type:{type},please check it");
+                EFLogger.Error($"LoadConfig, Can not find type:{type},please check it");
                 return;
             }
             SetButtonStyle(style);

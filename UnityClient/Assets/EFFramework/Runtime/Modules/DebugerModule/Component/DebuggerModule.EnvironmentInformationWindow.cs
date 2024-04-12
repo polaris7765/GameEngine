@@ -18,14 +18,14 @@ namespace EFFramework
                 _mRootModule = ModuleSystem.GetModule<RootModule>();
                 if (_mRootModule == null)
                 {
-                    Log.Fatal("Base component is invalid.");
+                    EFLogger.Fatal("Base component is invalid.");
                     return;
                 }
 
                 _mResourceModule = ModuleSystem.GetModule<ResourceModule>();
                 if (_mResourceModule == null)
                 {
-                    Log.Fatal("Resource component is invalid.");
+                    EFLogger.Fatal("Resource component is invalid.");
                     return;
                 }
             }

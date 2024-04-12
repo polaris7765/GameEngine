@@ -20,7 +20,7 @@ namespace EFFramework
             _timerManager = ModuleImpSystem.GetModule<TimerManager>();
             if (_timerManager == null)
             {
-                Log.Fatal("TimerMgr is invalid.");
+                EFLogger.Fatal("TimerMgr is invalid.");
             }
         }
 
@@ -146,7 +146,7 @@ namespace EFFramework
         {
             if (_timerManager == null)
             {
-                Log.Fatal("TimerMgr is invalid.");
+                EFLogger.Fatal("TimerMgr is invalid.");
                 throw new FrameworkException("TimerMgr is invalid.");
             }
 
@@ -160,7 +160,7 @@ namespace EFFramework
         {
             if (_timerManager == null)
             {
-                Log.Fatal("TimerMgr is invalid.");
+                EFLogger.Fatal("TimerMgr is invalid.");
                 throw new FrameworkException("TimerMgr is invalid.");
             }
 

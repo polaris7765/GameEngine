@@ -73,7 +73,7 @@ namespace EFFramework
             m_ResourceManager = ModuleImpSystem.GetModule<IResourceManager>();
             if (m_ResourceManager == null)
             {
-                Log.Fatal("Resource component is invalid.");
+                EFLogger.Fatal("Resource component is invalid.");
                 return;
             }
         }
@@ -83,7 +83,7 @@ namespace EFFramework
             RootModule rootModule = ModuleSystem.GetModule<RootModule>();
             if (rootModule == null)
             {
-                Log.Fatal("Base component is invalid.");
+                EFLogger.Fatal("Base component is invalid.");
                 return;
             }
 
@@ -97,7 +97,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(m_DefaultLanguage))
             {
-                Log.Fatal($"Must set defaultLanguage.");
+                EFLogger.Fatal($"Must set defaultLanguage.");
                 return false;
             }
 #if UNITY_EDITOR
@@ -127,7 +127,7 @@ namespace EFFramework
 #if UNITY_EDITOR
             if (!m_UseRuntimeModule)
             {
-                Log.Warning($"禁止在此模式下 动态加载语言");
+                EFLogger.Warning($"禁止在此模式下 动态加载语言");
                 return;
             }
 #endif
@@ -135,11 +135,11 @@ namespace EFFramework
             
             if (assetTextAsset == null)
             {
-                Log.Warning($"没有加载到语言总表");
+                EFLogger.Warning($"没有加载到语言总表");
                 return;
             }
 
-            Log.Info($"加载语言总表成功");
+            EFLogger.Info($"加载语言总表成功");
 
             UseLocalizationCSV(assetTextAsset.text, true);
         }
@@ -155,7 +155,7 @@ namespace EFFramework
 #if UNITY_EDITOR
             if (!m_UseRuntimeModule)
             {
-                Log.Warning($"禁止在此模式下 动态加载语言 {language}");
+                EFLogger.Warning($"禁止在此模式下 动态加载语言 {language}");
                 return;
             }
 #endif
@@ -171,7 +171,7 @@ namespace EFFramework
             {
                 if (m_InnerLocalizationCSV == null)
                 {
-                    Log.Warning($"请使用I2Localization.asset导出CSV创建内置多语言.");
+                    EFLogger.Warning($"请使用I2Localization.asset导出CSV创建内置多语言.");
                     return;
                 }
                 
@@ -180,11 +180,11 @@ namespace EFFramework
 
             if (assetTextAsset == null)
             {
-                Log.Warning($"没有加载到目标语言资源 {language}");
+                EFLogger.Warning($"没有加载到目标语言资源 {language}");
                 return;
             }
 
-            Log.Info($"加载语言成功 {language}");
+            EFLogger.Info($"加载语言成功 {language}");
 
             UseLocalizationCSV(assetTextAsset.text, !setCurrent);
             if (setCurrent)
@@ -249,7 +249,7 @@ namespace EFFramework
                     return true;
                 }
 
-                Log.Warning($"当前没有这个语言无法切换到此语言 {language}");
+                EFLogger.Warning($"当前没有这个语言无法切换到此语言 {language}");
                 return false;
             }
 
@@ -258,7 +258,7 @@ namespace EFFramework
                 return true;
             }
 
-            Log.Info($"设置当前语言 = {language}");
+            EFLogger.Info($"设置当前语言 = {language}");
             LocalizationManager.CurrentLanguage = language;
             m_CurrentLanguage = language;
             return true;
@@ -273,7 +273,7 @@ namespace EFFramework
         {
             if (languageId < 0 || languageId >= m_AllLanguage.Count)
             {
-                Log.Warning($"Error languageIndex. Could not set and check {languageId}  Language.Count = {m_AllLanguage.Count}.");
+                EFLogger.Warning($"Error languageIndex. Could not set and check {languageId}  Language.Count = {m_AllLanguage.Count}.");
                 return false;
             }
 
@@ -306,7 +306,7 @@ namespace EFFramework
                 return assetObject;
             }
 
-            Log.Error($"Localization could not load {path}  assetsType :{typeof(T).Name}.");
+            EFLogger.Error($"Localization could not load {path}  assetsType :{typeof(T).Name}.");
             return null;
         }
     }

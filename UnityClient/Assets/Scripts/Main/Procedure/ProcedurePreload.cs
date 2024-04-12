@@ -150,13 +150,13 @@ namespace AppMain
 
         private void OnPreLoadAssetFailure(string assetName, LoadResourceStatus status, string errormessage, object userdata)
         {
-            Log.Warning("Can not preload asset from '{0}' with error message '{1}'.", assetName, errormessage);
+            EFLogger.Warning("Can not preload asset from '{0}' with error message '{1}'.", assetName, errormessage);
             _loadedFlag[assetName] = true;
         }
 
         private void OnPreLoadAssetSuccess(string assetName, object asset, float duration, object userdata)
         {
-            Log.Debug("Success preload asset from '{0}' duration '{1}'.", assetName, duration);
+            EFLogger.Debug("Success preload asset from '{0}' duration '{1}'.", assetName, duration);
             _loadedFlag[assetName] = true;
         }
     }

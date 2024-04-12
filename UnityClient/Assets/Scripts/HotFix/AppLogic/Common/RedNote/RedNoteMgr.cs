@@ -317,7 +317,7 @@ namespace AppLogic
             var notifyStr = NotifyTypeToString(notifyType);
             if (notifyStr == null)
             {
-                Log.Error("RedNoteNotifyId :{0} Not Exit! Please Check", notifyType.ToString());
+                EFLogger.Error("RedNoteNotifyId :{0} Not Exit! Please Check", notifyType.ToString());
                 return string.Empty;
             }
 

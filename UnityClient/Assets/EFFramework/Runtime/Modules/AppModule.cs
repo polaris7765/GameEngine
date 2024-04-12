@@ -131,7 +131,7 @@ namespace EFFramework
 
             T module = ModuleSystem.GetModule<T>();
 
-            Log.Assert(condition: module != null, $"{typeof(T)} is null");
+            EFLogger.Assert(condition: module != null, $"{typeof(T)} is null");
 
             _moduleMaps.Add(type, module);
 
@@ -140,20 +140,21 @@ namespace EFFramework
 
         private void Start()
         {
-            AppEvent.AddEventListener<string>("acd", arg1 =>
-            {
-                Log.Info(arg1);
-            });
-            Log.Info("GameModule Active");
+            //AppEvent.AddEventListener<string>("acd", arg1 =>
+            //{
+            //    EFLogger.Info(arg1);
+            //});
+            //AppEvent.Send("acd", "---2345");
+            
+            EFLogger.Info("GameModule Active");
             gameObject.name = $"[{nameof(AppModule)}]";
             _gameModuleRoot = gameObject;
             DontDestroyOnLoad(gameObject);
-            AppEvent.Send("acd", "---2345");
         }
 
         public static void Shutdown(ShutdownType shutdownType)
         {
-            Log.Info("GameModule Shutdown");
+            EFLogger.Info("GameModule Shutdown");
             if (_gameModuleRoot != null)
             {
                 Destroy(_gameModuleRoot);

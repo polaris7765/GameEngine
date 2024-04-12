@@ -175,7 +175,7 @@ namespace EFFramework
 #if UNITY_EDITOR
             //编辑器模式使用。
             EPlayMode playMode = (EPlayMode)UnityEditor.EditorPrefs.GetInt("EditorPlayMode");
-            Log.Warning($"Editor Module Used :{playMode}");
+            EFLogger.Warning($"Editor Module Used :{playMode}");
 #else
             //运行时使用。
             EPlayMode playMode = (EPlayMode)PlayMode;
@@ -183,7 +183,7 @@ namespace EFFramework
 
             if (PackageMap.ContainsKey(packageName))
             {
-                Log.Error($"ResourceSystem has already init package : {packageName}");
+                EFLogger.Error($"ResourceSystem has already init package : {packageName}");
                 return null;
             }
 
@@ -242,7 +242,7 @@ namespace EFFramework
 
             await initializationOperation.ToUniTask();
 
-            Log.Info($"Init resource package version : {initializationOperation?.PackageVersion}");
+            EFLogger.Info($"Init resource package version : {initializationOperation?.PackageVersion}");
 
             return initializationOperation;
         }
@@ -558,7 +558,7 @@ namespace EFFramework
         {
             if (string.IsNullOrEmpty(location))
             {
-                Log.Error("Asset name is invalid.");
+                EFLogger.Error("Asset name is invalid.");
                 return;
             }
             

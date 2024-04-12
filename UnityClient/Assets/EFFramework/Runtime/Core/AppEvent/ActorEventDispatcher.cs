@@ -82,7 +82,7 @@ namespace EFFramework
             if (!_delayDeleteEventList.Contains(eventId))
             {
                 _delayDeleteEventList.Add(eventId);
-                Log.Info("delay delete eventId[{0}]", eventId);
+                EFLogger.Info("delay delete eventId[{0}]", eventId);
             }
         }
 
@@ -100,7 +100,7 @@ namespace EFFramework
                     {
                         if (listListener[i].IsDeleted)
                         {
-                            Log.Info("remove delay delete eventId[{0}]", eventId);
+                            EFLogger.Info("remove delay delete eventId[{0}]", eventId);
                             listListener[i] = listListener[^1];
                             EventRegInfo.Release(listListener[i]);
                             listListener.RemoveAt(listListener.Count - 1);
@@ -141,14 +141,14 @@ namespace EFFramework
                     }
                     else
                     {
-                        Log.Fatal("Invalid event data type: {0}", eventId);
+                        EFLogger.Fatal("Invalid event data type: {0}", eventId);
                     }
                 }
 
 
 #if UNITY_EDITOR
-                Log.Assert(iEventCnt == _processEventList.Count);
-                Log.Assert(eventId == _processEventList[^1]);
+                EFLogger.Assert(iEventCnt == _processEventList.Count);
+                EFLogger.Assert(eventId == _processEventList[^1]);
 #endif
                 _processEventList.RemoveAt(_processEventList.Count - 1);
 
@@ -186,14 +186,14 @@ namespace EFFramework
                     }
                     else
                     {
-                        Log.Fatal("Invalid event data type: {0}", eventId);
+                        EFLogger.Fatal("Invalid event data type: {0}", eventId);
                     }
                 }
 
 
 #if UNITY_EDITOR
-                Log.Assert(iEventCnt == _processEventList.Count);
-                Log.Assert(eventId == _processEventList[^1]);
+                EFLogger.Assert(iEventCnt == _processEventList.Count);
+                EFLogger.Assert(eventId == _processEventList[^1]);
 #endif
 
                 _processEventList.RemoveAt(_processEventList.Count - 1);
@@ -234,14 +234,14 @@ namespace EFFramework
                     }
                     else
                     {
-                        Log.Fatal("Invalid event data type: {0}", eventId);
+                        EFLogger.Fatal("Invalid event data type: {0}", eventId);
                     }
                 }
 
 
 #if UNITY_EDITOR
-                Log.Assert(iEventCnt == _processEventList.Count);
-                Log.Assert(eventId == _processEventList[^1]);
+                EFLogger.Assert(iEventCnt == _processEventList.Count);
+                EFLogger.Assert(eventId == _processEventList[^1]);
 #endif
                 _processEventList.RemoveAt(_processEventList.Count - 1);
 
@@ -283,14 +283,14 @@ namespace EFFramework
                     }
                     else
                     {
-                        Log.Fatal("Invalid event data type: {0}", eventId);
+                        EFLogger.Fatal("Invalid event data type: {0}", eventId);
                     }
                 }
 
 
 #if UNITY_EDITOR
-                Log.Assert(iEventCnt == _processEventList.Count);
-                Log.Assert(eventId == _processEventList[^1]);
+                EFLogger.Assert(iEventCnt == _processEventList.Count);
+                EFLogger.Assert(eventId == _processEventList[^1]);
 #endif
                 _processEventList.RemoveAt(_processEventList.Count - 1);
 
@@ -335,14 +335,14 @@ namespace EFFramework
                     }
                     else
                     {
-                        Log.Fatal("Invalid event data type: {0}", eventId);
+                        EFLogger.Fatal("Invalid event data type: {0}", eventId);
                     }
                 }
 
 
 #if UNITY_EDITOR
-                Log.Assert(iEventCnt == _processEventList.Count);
-                Log.Assert(eventId == _processEventList[^1]);
+                EFLogger.Assert(iEventCnt == _processEventList.Count);
+                EFLogger.Assert(eventId == _processEventList[^1]);
 #endif
                 _processEventList.RemoveAt(_processEventList.Count - 1);
 
@@ -435,11 +435,11 @@ namespace EFFramework
                 if (existNode.IsDeleted)
                 {
                     existNode.IsDeleted = false;
-                    Log.Warning("AddEvent hashId deleted, repeat add: {0}", eventId);
+                    EFLogger.Warning("AddEvent hashId deleted, repeat add: {0}", eventId);
                     return;
                 }
 
-                Log.Fatal("AddEvent hashId repeated: {0}", eventId);
+                EFLogger.Fatal("AddEvent hashId repeated: {0}", eventId);
                 return;
             }
 

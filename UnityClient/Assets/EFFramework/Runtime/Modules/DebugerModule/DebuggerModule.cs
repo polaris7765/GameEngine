@@ -150,7 +150,7 @@ namespace EFFramework
             _debuggerManager = ModuleImpSystem.GetModule<IDebuggerManager>();
             if (_debuggerManager == null)
             {
-                Log.Fatal("Debugger manager is invalid.");
+                EFLogger.Fatal("Debugger manager is invalid.");
                 return;
             }
 
@@ -161,7 +161,7 @@ namespace EFFramework
         {
             if (_settingModule == null)
             {
-                Log.Fatal("Setting component is invalid.");
+                EFLogger.Fatal("Setting component is invalid.");
                 return;
             }
             
@@ -173,7 +173,7 @@ namespace EFFramework
             _settingModule = ModuleSystem.GetModule<SettingModule>();
             if (_settingModule == null)
             {
-                Log.Fatal("Setting component is invalid.");
+                EFLogger.Fatal("Setting component is invalid.");
                 return;
             }
             

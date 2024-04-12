@@ -30,7 +30,7 @@ namespace AppMain
         {
             _procedureOwner = procedureOwner;
             
-            Log.Info("创建补丁下载器");
+            EFLogger.Info("创建补丁下载器");
             
             UILoadMgr.Show(UIDefine.UILoadUpdate,$"创建补丁下载器...");
             
@@ -45,13 +45,13 @@ namespace AppMain
 
             if (_downloader.TotalDownloadCount == 0)
             {
-                Log.Info("Not found any download files !");
+                EFLogger.Info("Not found any download files !");
                 ChangeState<ProcedureDownloadOver>(_procedureOwner);
             }
             else
             {
                 //A total of 10 files were found that need to be downloaded
-                Log.Info($"Found total {_downloader.TotalDownloadCount} files that need download ！");
+                EFLogger.Info($"Found total {_downloader.TotalDownloadCount} files that need download ！");
 
                 // 发现新更新文件后，挂起流程系统
                 // 注意：开发者需要在下载前检测磁盘空间不足
@@ -86,7 +86,7 @@ namespace AppMain
         /// </summary>
         private async UniTaskVoid RequestUpdateData()
         {
-            Log.Warning("On RequestVersion");
+            EFLogger.Warning("On RequestVersion");
             _curTryCount++;
 
             if (_curTryCount > MaxTryCount)
@@ -106,13 +106,13 @@ namespace AppMain
             UILoadMgr.Show(UIDefine.UILoadUpdate, string.Format(LoadText.Instance.Label_Load_Checking, _curTryCount));
             if (string.IsNullOrEmpty(checkVersionUrl))
             {
-                Log.Error("LoadMgr.RequestVersion, remote url is empty or null");
+                EFLogger.Error("LoadMgr.RequestVersion, remote url is empty or null");
                 UILoadTip.ShowMessageBox(LoadText.Instance.Label_RemoteUrlisNull, MessageShowType.OneButton,
                     LoadStyle.StyleEnum.Style_QuitApp,
                     Application.Quit);
                 return;
             }
-            Log.Info("RequestUpdateData, proxy:" + checkVersionUrl);
+            EFLogger.Info("RequestUpdateData, proxy:" + checkVersionUrl);
 
             var updateDataStr = await Utility.Http.Get(checkVersionUrl);
 
@@ -123,7 +123,7 @@ namespace AppMain
             }
             catch (Exception e)
             {
-                Log.Fatal(e);
+                EFLogger.Fatal(e);
                 throw;
             }
         }
@@ -142,7 +142,7 @@ namespace AppMain
                     LoadStyle.StyleEnum.Style_DownLoadApk,
                     () =>
                     {
-                        Log.Info("自定义下载APK");
+                        EFLogger.Info("自定义下载APK");
                         Application.Quit();
                     });
             }
@@ -193,7 +193,7 @@ namespace AppMain
                 }
                 else
                 {
-                    Log.Error("LoadMgr._CheckUpdate, style is error,code:" + data.UpdateStyle);
+                    EFLogger.Error("LoadMgr._CheckUpdate, style is error,code:" + data.UpdateStyle);
                 }
             }
         }

@@ -362,7 +362,7 @@ namespace EFFramework
             }
             catch (Exception e)
             {
-                Log.Error(e.ToString());
+                EFLogger.Error(e.ToString());
             }
 
             if (audioMixer != null)

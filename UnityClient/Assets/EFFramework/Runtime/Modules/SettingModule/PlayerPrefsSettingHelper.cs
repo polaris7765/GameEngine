@@ -45,7 +45,7 @@ namespace EFFramework
         /// <returns>所有应用配置项的名称。</returns>
         public override string[] GetAllSettingNames()
         {
-            Log.Warning("GetAllSettingNames is not supported.");
+            EFLogger.Warning("GetAllSettingNames is not supported.");
             return null;
         }
 
@@ -61,7 +61,7 @@ namespace EFFramework
             }
 
             results.Clear();
-            Log.Warning("GetAllSettingNames is not supported.");
+            EFLogger.Warning("GetAllSettingNames is not supported.");
         }
 
         /// <summary>

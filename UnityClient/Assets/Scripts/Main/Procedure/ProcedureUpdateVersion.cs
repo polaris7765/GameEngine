@@ -27,7 +27,7 @@ namespace AppMain
             //检查设备是否能够访问互联网
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
-                Log.Warning("The device is not connected to the network");
+                EFLogger.Warning("The device is not connected to the network");
                 UILoadMgr.Show(UIDefine.UILoadUpdate, LoadText.Instance.Label_Net_UnReachable);
                 UILoadTip.ShowMessageBox(LoadText.Instance.Label_Net_UnReachable, MessageShowType.TwoButton,
                     LoadStyle.StyleEnum.Style_Retry,
@@ -58,7 +58,7 @@ namespace AppMain
                 {
                     //线上最新版本operation.PackageVersion
                     AppModule.Resource.PackageVersion = operation.PackageVersion;
-                    Log.Debug($"Updated package Version : from {AppModule.Resource.GetPackageVersion()} to {operation.PackageVersion}");
+                    EFLogger.Debug($"Updated package Version : from {AppModule.Resource.GetPackageVersion()} to {operation.PackageVersion}");
                     ChangeState<ProcedureUpdateManifest>(_procedureOwner);
                 }
                 else
@@ -74,7 +74,7 @@ namespace AppMain
 
         private void OnGetStaticVersionError(string error)
         {
-            Log.Error(error);
+            EFLogger.Error(error);
 
             UILoadTip.ShowMessageBox($"用户尝试更新静态版本失败！点击确认重试 \n \n <color=#FF0000>原因{error}</color>", MessageShowType.TwoButton,
                 LoadStyle.StyleEnum.Style_Retry

@@ -36,7 +36,7 @@ namespace AppMain
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
-            Log.Debug("HyBridCLR ProcedureLoadAssembly OnEnter");
+            EFLogger.Debug("HyBridCLR ProcedureLoadAssembly OnEnter");
             m_procedureOwner = procedureOwner;
             m_LoadAssemblyComplete = false;
             m_HotfixAssemblys = new List<Assembly>();
@@ -76,7 +76,7 @@ namespace AppMain
                                     $"{hotUpdateDllName}{SettingsUtils.HybridCLRCustomGlobalSettings.AssemblyTextAssetExtension}"));
                         }
                            
-                        Log.Debug($"LoadAsset: [ {assetLocation} ]");
+                        EFLogger.Debug($"LoadAsset: [ {assetLocation} ]");
                         m_LoadAssetCount++;
                         AppModule.Resource.LoadAsset<TextAsset>(assetLocation,LoadAssetSuccess);
                     }
@@ -111,25 +111,25 @@ namespace AppMain
         
         private void AllAssemblyLoadComplete()
         {
-            ChangeState<ProcedureStartGame>(m_procedureOwner);
+            ChangeState<ProcedureStartApp>(m_procedureOwner);
 #if UNITY_EDITOR
             m_MainLogicAssembly = GetMainLogicAssembly();
 #endif
             if (m_MainLogicAssembly == null)
             {
-                Log.Fatal($"Main logic assembly missing.");
+                EFLogger.Fatal($"Main logic assembly missing.");
                 return;
             }
             var appType = m_MainLogicAssembly.GetType("MainApp");
             if (appType == null)
             {
-                Log.Fatal($"Main logic type 'AppMain' missing.");
+                EFLogger.Fatal($"Main logic type 'AppMain' missing.");
                 return;
             }
             var entryMethod = appType.GetMethod("Entrance");
             if (entryMethod == null)
             {
-                Log.Fatal($"Main logic entry method 'Entrance' missing.");
+                EFLogger.Fatal($"Main logic entry method 'Entrance' missing.");
                 return;
             }
             object[] objects = new object[] { new object[] { m_HotfixAssemblys } };
@@ -174,12 +174,12 @@ namespace AppMain
             m_LoadAssetCount--;
             if (textAsset == null)
             {
-                Log.Warning($"Load Assembly failed.");
+                EFLogger.Warning($"Load Assembly failed.");
                 return;
             }
 
             var assetName = textAsset.name;
-            Log.Debug($"LoadAssetSuccess, assetName: [ {assetName} ]");
+            EFLogger.Debug($"LoadAssetSuccess, assetName: [ {assetName} ]");
 
             try
             {
@@ -189,12 +189,12 @@ namespace AppMain
                     m_MainLogicAssembly = assembly;
                 }
                 m_HotfixAssemblys.Add(assembly);
-                Log.Debug($"Assembly [ {assembly.GetName().Name} ] loaded");
+                EFLogger.Debug($"Assembly [ {assembly.GetName().Name} ] loaded");
             }
             catch (Exception e)
             {
                 m_FailureAssetCount++;
-                Log.Fatal(e);
+                EFLogger.Fatal(e);
                 throw;
             }
             finally
@@ -233,7 +233,7 @@ namespace AppMain
                 }
                 
                 
-                Log.Debug($"LoadMetadataAsset: [ {assetLocation} ]");
+                EFLogger.Debug($"LoadMetadataAsset: [ {assetLocation} ]");
                 m_LoadMetadataAssetCount++;
                 AppModule.Resource.LoadAsset<TextAsset>(assetLocation,LoadMetadataAssetSuccess);
             }
@@ -249,12 +249,12 @@ namespace AppMain
             m_LoadMetadataAssetCount--;
             if (null == textAsset)
             {
-                Log.Debug($"LoadMetadataAssetSuccess:Load Metadata failed.");
+                EFLogger.Debug($"LoadMetadataAssetSuccess:Load Metadata failed.");
                 return;
             }
 
             string assetName = textAsset.name;
-            Log.Debug($"LoadMetadataAssetSuccess, assetName: [ {assetName} ]");
+            EFLogger.Debug($"LoadMetadataAssetSuccess, assetName: [ {assetName} ]");
             try
             {
                 byte[] dllBytes = textAsset.bytes;
@@ -264,14 +264,14 @@ namespace AppMain
                     // 加载assembly对应的dll，会自动为它hook。一旦Aot泛型函数的native函数不存在，用解释器版本代码
                     HomologousImageMode mode = HomologousImageMode.SuperSet;
                     LoadImageErrorCode err = (LoadImageErrorCode)HybridCLR.RuntimeApi.LoadMetadataForAOTAssembly(dllBytes,mode); 
-                    Log.Warning($"LoadMetadataForAOTAssembly:{assetName}. mode:{mode} ret:{err}");
+                    EFLogger.Warning($"LoadMetadataForAOTAssembly:{assetName}. mode:{mode} ret:{err}");
 #endif
                 }
             }
             catch (Exception e)
             {
                 m_FailureMetadataAssetCount++;
-                Log.Fatal(e.Message);
+                EFLogger.Fatal(e.Message);
                 throw;
             }
             finally

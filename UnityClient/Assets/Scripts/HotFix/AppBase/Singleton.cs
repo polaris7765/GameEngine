@@ -17,7 +17,7 @@ namespace AppBase
                 if (null == _instance)
                 {
                     _instance = new T();
-                    Log.Assert(_instance != null);
+                    EFLogger.Assert(_instance != null);
                 }
 
                 return _instance;

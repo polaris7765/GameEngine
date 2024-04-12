@@ -36,7 +36,7 @@ namespace EFFramework
 		{
 			if (!go)
 			{
-				Log.Warning("EventTriggerListener.Get, GameObject is null!!");
+				EFLogger.Warning("EventTriggerListener.Get, GameObject is null!!");
 			}
 			EventTriggerListener listener = go.GetComponent<EventTriggerListener>();
 

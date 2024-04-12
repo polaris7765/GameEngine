@@ -27,7 +27,7 @@ namespace EFFramework
             _objectPoolManager = ModuleImpSystem.GetModule<IObjectPoolManager>();
             if (_objectPoolManager == null)
             {
-                Log.Fatal("Object pool manager is invalid.");
+                EFLogger.Fatal("Object pool manager is invalid.");
                 return;
             }
         }
@@ -999,7 +999,7 @@ namespace EFFramework
         /// </summary>
         public void Release()
         {
-            Log.Info("Object pool release...");
+            EFLogger.Info("Object pool release...");
             _objectPoolManager.Release();
         }
 
@@ -1008,7 +1008,7 @@ namespace EFFramework
         /// </summary>
         public void ReleaseAllUnused()
         {
-            Log.Info("Object pool release all unused...");
+            EFLogger.Info("Object pool release all unused...");
             _objectPoolManager.ReleaseAllUnused();
         }
     }

@@ -17,7 +17,7 @@ namespace EFFramework
 
         private void OnLoadAssetFailure(string assetName, LoadResourceStatus status, string errormessage, object userdata)
         {
-            Log.Error("Can not load asset from '{1}' with error message '{2}'.", assetName, errormessage);
+            EFLogger.Error("Can not load asset from '{1}' with error message '{2}'.", assetName, errormessage);
         }
 
         private void OnLoadAssetSuccess(string assetName, object asset, float duration, object userdata)
@@ -31,7 +31,7 @@ namespace EFFramework
             }
             else
             {
-                Log.Error($"Load failure asset type is {asset.GetType()}.");
+                EFLogger.Error($"Load failure asset type is {asset.GetType()}.");
             }
         }
 

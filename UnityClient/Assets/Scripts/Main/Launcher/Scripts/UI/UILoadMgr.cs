@@ -44,7 +44,7 @@ namespace AppMain
 
             if (!_uiMap.ContainsKey(uiInfo))
             {
-                Log.Error($"ui not exist: {uiInfo}");
+                EFLogger.Error($"ui not exist: {uiInfo}");
                 return;
             }
 

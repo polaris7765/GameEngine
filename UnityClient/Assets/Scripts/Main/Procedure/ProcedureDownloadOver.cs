@@ -11,7 +11,7 @@ namespace AppMain
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
-            Log.Info("下载完成!!!");
+            EFLogger.Info("下载完成!!!");
             
             UILoadMgr.Show(UIDefine.UILoadUpdate,$"下载完成...");
         }

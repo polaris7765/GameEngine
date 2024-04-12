@@ -42,13 +42,13 @@ public partial class MainApp
     {
         if (_listLogicMgr.Contains(logicSys))
         {
-            Log.Fatal("Repeat add logic system: {0}", logicSys.GetType().Name);
+            EFLogger.Fatal("Repeat add logic system: {0}", logicSys.GetType().Name);
             return false;
         }
 
         if (!logicSys.OnInit())
         {
-            Log.Fatal("{0} Init failed", logicSys.GetType().Name);
+            EFLogger.Fatal("{0} Init failed", logicSys.GetType().Name);
             return false;
         }
 

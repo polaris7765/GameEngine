@@ -109,9 +109,9 @@ namespace EFFramework
             InitTextHelper();
             InitVersionHelper();
             InitLogHelper();
-            Log.Info("EFFramework Version: {0}", Version.FrameworkVersion);
-            Log.Info("Game Version: {0} ({1})", Version.AppVersion, Version.InternalAppVersion);
-            Log.Info("Unity Version: {0}", Application.unityVersion);
+            EFLogger.Info("EFFramework Version: {0}", Version.FrameworkVersion);
+            EFLogger.Info("Game Version: {0} ({1})", Version.AppVersion, Version.InternalAppVersion);
+            EFLogger.Info("Unity Version: {0}", Application.unityVersion);
 
             InitJsonHelper();
 
@@ -212,14 +212,14 @@ namespace EFFramework
             Type textHelperType = Utility.Assembly.GetType(m_TextHelperTypeName);
             if (textHelperType == null)
             {
-                Log.Error("Can not find text helper type '{0}'.", m_TextHelperTypeName);
+                EFLogger.Error("Can not find text helper type '{0}'.", m_TextHelperTypeName);
                 return;
             }
 
             Utility.Text.ITextHelper textHelper = (Utility.Text.ITextHelper)Activator.CreateInstance(textHelperType);
             if (textHelper == null)
             {
-                Log.Error("Can not create text helper instance '{0}'.", m_TextHelperTypeName);
+                EFLogger.Error("Can not create text helper instance '{0}'.", m_TextHelperTypeName);
                 return;
             }
 
@@ -280,14 +280,14 @@ namespace EFFramework
             Type jsonHelperType = Utility.Assembly.GetType(m_JsonHelperTypeName);
             if (jsonHelperType == null)
             {
-                Log.Error("Can not find JSON helper type '{0}'.", m_JsonHelperTypeName);
+                EFLogger.Error("Can not find JSON helper type '{0}'.", m_JsonHelperTypeName);
                 return;
             }
 
             Utility.Json.IJsonHelper jsonHelper = (Utility.Json.IJsonHelper)Activator.CreateInstance(jsonHelperType);
             if (jsonHelper == null)
             {
-                Log.Error("Can not create JSON helper instance '{0}'.", m_JsonHelperTypeName);
+                EFLogger.Error("Can not create JSON helper instance '{0}'.", m_JsonHelperTypeName);
                 return;
             }
 
@@ -296,7 +296,7 @@ namespace EFFramework
 
         private void OnLowMemory()
         {
-            Log.Warning("Low memory reported...");
+            EFLogger.Warning("Low memory reported...");
             
             ObjectPoolModule objectPoolModule = ModuleSystem.GetModule<ObjectPoolModule>();
             if (objectPoolModule != null)

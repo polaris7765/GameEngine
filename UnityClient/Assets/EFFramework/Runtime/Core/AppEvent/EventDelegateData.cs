@@ -33,7 +33,7 @@ namespace EFFramework
         {
             if (_listExist.Contains(handler))
             {
-                Log.Fatal("Repeated Add Handler");
+                EFLogger.Fatal("Repeated Add Handler");
                 return false;
             }
 
@@ -65,7 +65,7 @@ namespace EFFramework
             {
                 if (!_listExist.Remove(handler))
                 {
-                    Log.Fatal("Delete handle failed, not exist, EventId: {0}", RuntimeId.ToString(_eventType));
+                    EFLogger.Fatal("Delete handle failed, not exist, EventId: {0}", RuntimeId.ToString(_eventType));
                 }
             }
         }

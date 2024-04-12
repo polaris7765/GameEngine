@@ -7,7 +7,7 @@ namespace AppLogic
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
-            Log.Debug("OnEnter MainApp Procedure");
+            EFLogger.Debug("OnEnter MainApp Procedure");
         }
     }
 }

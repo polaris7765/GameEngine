@@ -27,11 +27,11 @@ namespace AppLogic
         #region 事件
         private void OnClickStartBtn()
         {
-            Log.Info("OnClickStartBtn");
+            EFLogger.Info("OnClickStartBtn");
         }
         private void OnClickAboutBtn()
         {
-            Log.Info("OnClickAboutBtn");
+            EFLogger.Info("OnClickAboutBtn");
         }
         #endregion
 

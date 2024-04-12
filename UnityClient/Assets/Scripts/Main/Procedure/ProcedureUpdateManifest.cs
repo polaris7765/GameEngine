@@ -15,7 +15,7 @@ namespace AppMain
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
-            Log.Info("更新资源清单！！！");
+            EFLogger.Info("更新资源清单！！！");
             
             UILoadMgr.Show(UIDefine.UILoadUpdate,$"更新清单文件...");
             
@@ -39,7 +39,7 @@ namespace AppMain
             }
             else
             {
-                Log.Error(operation.Error);
+                EFLogger.Error(operation.Error);
                 
                 UILoadTip.ShowMessageBox($"用户尝试更新清单失败！点击确认重试 \n \n <color=#FF0000>原因{operation.Error}</color>", MessageShowType.TwoButton,
                     LoadStyle.StyleEnum.Style_Retry

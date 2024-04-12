@@ -19,8 +19,8 @@ public partial class MainApp:Singleton<MainApp>
     public static void Entrance(object[] objects)
     {
         _hotfixAssembly = (List<Assembly>)objects[0];
-        Log.Warning("======= 看到此条日志代表你成功运行了热更新代码 =======");
-        Log.Warning("======= Entrance MainApp =======");
+        EFLogger.Warning("======= 看到此条日志代表你成功运行了热更新代码 =======");
+        EFLogger.Warning("======= Entrance MainApp =======");
         Instance.Init();
         Instance.Start();
         Utility.Unity.AddUpdateListener(Instance.Update);
@@ -30,22 +30,10 @@ public partial class MainApp:Singleton<MainApp>
         Utility.Unity.AddOnDrawGizmosListener(Instance.OnDrawGizmos);
         Utility.Unity.AddOnApplicationPauseListener(Instance.OnApplicationPause);
         AppModule.Procedure.RestartProcedure(new AppLogic.OnEnterMainAppProcedure());
-        Instance.StartAppLogic();
-    }
-
-    /// <summary>
-    /// 开始应用业务层逻辑。
-    /// <remarks>显示UI、加载场景等。</remarks>
-    /// </summary>
-    private void StartAppLogic()
-    {
-        StartBattleRoom().Forget();
-    }
-
-    private async UniTaskVoid StartBattleRoom()
-    {
-        await AppModule.Scene.LoadScene(SceneName.SCENE_BATTLE.ToString().ToLower()).ToUniTask();
-        BattleSystem.Instance.LoadRoom().Forget();
+        //开始业务逻辑
+        SceneController.Instance.Init();
+        AppEvent.Send(SceneEvent.Login);
+        //Instance.StartAppLogic();
     }
 
     /// <summary>

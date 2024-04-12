@@ -245,7 +245,7 @@ namespace EFFramework
             transform = go.GetComponent<Transform>();
             rectTransform = transform as RectTransform;
             gameObject = go;
-            Log.Assert(rectTransform != null, $"{go.name} ui base element need to be RectTransform");
+            EFLogger.Assert(rectTransform != null, $"{go.name} ui base element need to be RectTransform");
             return true;
         }
 

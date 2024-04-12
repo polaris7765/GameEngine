@@ -27,7 +27,7 @@ namespace EFFramework
             _fsmManager = ModuleImpSystem.GetModule<IFsmManager>();
             if (_fsmManager == null)
             {
-                Log.Fatal("FSM manager is invalid.");
+                EFLogger.Fatal("FSM manager is invalid.");
                 return;
             }
         }

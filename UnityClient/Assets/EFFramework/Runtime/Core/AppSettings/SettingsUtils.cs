@@ -153,7 +153,7 @@ public static class SettingsUtils
         T customGlobalSettings = Resources.Load<T>(assetsPath);
         if (customGlobalSettings == null)
         {
-            Log.Error($"Could not found {assetType} asset，so auto create:{assetsPath}.");
+            EFLogger.Error($"Could not found {assetType} asset，so auto create:{assetsPath}.");
             return null;
         }
 

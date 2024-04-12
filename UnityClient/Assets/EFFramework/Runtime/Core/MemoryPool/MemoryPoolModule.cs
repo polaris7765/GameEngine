@@ -47,7 +47,7 @@ namespace EFFramework
                 MemoryPool.EnableStrictCheck = value;
                 if (value)
                 {
-                    Log.Info("Strict checking is enabled for the Memory Pool. It will drastically affect the performance.");
+                    EFLogger.Info("Strict checking is enabled for the Memory Pool. It will drastically affect the performance.");
                 }
             }
         }

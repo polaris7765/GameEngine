@@ -15,7 +15,7 @@ namespace AppMain
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             _procedureOwner = procedureOwner;
-            Log.Info("清理未使用的缓存文件！");
+            EFLogger.Info("清理未使用的缓存文件！");
             
             UILoadMgr.Show(UIDefine.UILoadUpdate,$"清理未使用的缓存文件...");
             

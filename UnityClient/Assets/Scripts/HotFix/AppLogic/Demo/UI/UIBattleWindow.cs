@@ -44,7 +44,7 @@ namespace AppLogic
         private async UniTaskVoid OnClickRestartBtn()
         {
             await UniTask.Yield();
-            await AppModule.Scene.LoadScene("scene_battle").ToUniTask();
+            await AppModule.Scene.LoadScene(SceneName.SCENE_BATTLE.ToString().ToLower()).ToUniTask();
     
             BattleSystem.Instance.DestroyRoom();
             BattleSystem.Instance.LoadRoom().Forget();

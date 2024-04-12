@@ -30,7 +30,7 @@ namespace EFFramework
 
                     if (_shader == null)
                     {
-                        Log.Error($"invalid shader path: {_shaderLocation}, shader name {_shaderName}");
+                        EFLogger.Error($"invalid shader path: {_shaderLocation}, shader name {_shaderName}");
                     }
                 }
 

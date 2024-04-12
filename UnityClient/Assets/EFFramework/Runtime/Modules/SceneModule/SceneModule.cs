@@ -8,7 +8,8 @@ namespace EFFramework
     {
         NONE = -1,
         SCENE_MAIN = 0,
-        SCENE_BATTLE = 1,
+        SCENE_LOGIN = 1,
+        SCENE_BATTLE = 3,
     }
     /// <summary>
     /// 场景管理模块。
@@ -22,14 +23,14 @@ namespace EFFramework
             RootModule baseComponent = ModuleSystem.GetModule<RootModule>();
             if (baseComponent == null)
             {
-                Log.Fatal("Root module is invalid.");
+                EFLogger.Fatal("Root module is invalid.");
                 return;
             }
 
             _sceneModule = ModuleImpSystem.GetModule<SceneModuleImp>();
             if (_sceneModule == null)
             {
-                Log.Fatal("SceneModule is invalid.");
+                EFLogger.Fatal("SceneModule is invalid.");
                 return;
             }
         }

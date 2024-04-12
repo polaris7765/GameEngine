@@ -14,7 +14,7 @@
             {
                 if (updateInterval <= 0f)
                 {
-                    Log.Error("Update interval is invalid.");
+                    EFLogger.Error("Update interval is invalid.");
                     return;
                 }
 
@@ -29,7 +29,7 @@
                 {
                     if (value <= 0f)
                     {
-                        Log.Error("Update interval is invalid.");
+                        EFLogger.Error("Update interval is invalid.");
                         return;
                     }
 

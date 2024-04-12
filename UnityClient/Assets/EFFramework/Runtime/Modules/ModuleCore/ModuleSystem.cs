@@ -76,7 +76,7 @@ namespace EFFramework
         /// <param name="shutdownType">关闭应用框架类型。</param>
         public static void Shutdown(ShutdownType shutdownType)
         {
-            Log.Info("Shutdown Game Framework ({0})...", shutdownType);
+            EFLogger.Info("Shutdown Game Framework ({0})...", shutdownType);
             Utility.Unity.Shutdown();
             RootModule rootModule = GetModule<RootModule>();
             if (rootModule != null)
@@ -116,7 +116,7 @@ namespace EFFramework
         {
             if (module == null)
             {
-                Log.Error("EFFramework Module is invalid.");
+                EFLogger.Error("EFFramework Module is invalid.");
                 return;
             }
 
@@ -127,7 +127,7 @@ namespace EFFramework
             {
                 if (current.Value.GetType() == type)
                 {
-                    Log.Error("Game Framework component type '{0}' is already exist.", type.FullName);
+                    EFLogger.Error("Game Framework component type '{0}' is already exist.", type.FullName);
                     return;
                 }
 

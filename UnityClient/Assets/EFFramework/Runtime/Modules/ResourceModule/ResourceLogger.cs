@@ -4,22 +4,22 @@
     {
         public void Log(string message)
         {
-            EFFramework.Log.Info(message);
+            EFFramework.EFLogger.Info(message);
         }
 
         public void Warning(string message)
         {
-            EFFramework.Log.Warning(message);
+            EFFramework.EFLogger.Warning(message);
         }
 
         public void Error(string message)
         {
-            EFFramework.Log.Error(message);
+            EFFramework.EFLogger.Error(message);
         }
 
         public void Exception(System.Exception exception)
         {
-            EFFramework.Log.Fatal(exception.Message);
+            EFFramework.EFLogger.Fatal(exception.Message);
         }
     }
 }

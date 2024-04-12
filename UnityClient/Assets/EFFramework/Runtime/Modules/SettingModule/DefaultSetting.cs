@@ -102,7 +102,7 @@ namespace EFFramework
             string value = null;
             if (!m_Settings.TryGetValue(settingName, out value))
             {
-                Log.Warning("Setting '{0}' is not exist.", settingName);
+                EFLogger.Warning("Setting '{0}' is not exist.", settingName);
                 return false;
             }
 
@@ -146,7 +146,7 @@ namespace EFFramework
             string value = null;
             if (!m_Settings.TryGetValue(settingName, out value))
             {
-                Log.Warning("Setting '{0}' is not exist.", settingName);
+                EFLogger.Warning("Setting '{0}' is not exist.", settingName);
                 return 0;
             }
 
@@ -190,7 +190,7 @@ namespace EFFramework
             string value = null;
             if (!m_Settings.TryGetValue(settingName, out value))
             {
-                Log.Warning("Setting '{0}' is not exist.", settingName);
+                EFLogger.Warning("Setting '{0}' is not exist.", settingName);
                 return 0f;
             }
 
@@ -234,7 +234,7 @@ namespace EFFramework
             string value = null;
             if (!m_Settings.TryGetValue(settingName, out value))
             {
-                Log.Warning("Setting '{0}' is not exist.", settingName);
+                EFLogger.Warning("Setting '{0}' is not exist.", settingName);
                 return null;
             }
 

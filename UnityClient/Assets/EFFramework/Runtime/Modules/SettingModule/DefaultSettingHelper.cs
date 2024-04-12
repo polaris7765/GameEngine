@@ -57,7 +57,7 @@ namespace EFFramework
             }
             catch (Exception exception)
             {
-                Log.Warning("Load settings failure with exception '{0}'.", exception);
+                EFLogger.Warning("Load settings failure with exception '{0}'.", exception);
                 return false;
             }
         }
@@ -77,7 +77,7 @@ namespace EFFramework
             }
             catch (Exception exception)
             {
-                Log.Warning("Save settings failure with exception '{0}'.", exception);
+                EFLogger.Warning("Save settings failure with exception '{0}'.", exception);
                 return false;
             }
         }

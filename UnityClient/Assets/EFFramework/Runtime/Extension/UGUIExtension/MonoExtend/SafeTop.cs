@@ -8,7 +8,7 @@ namespace EFFramework
         void Start()
         {
             var topRect = gameObject.transform as RectTransform;
-            CheckNotch(true);
+            //CheckNotch(true);
             if (topRect != null)
             {
                 var anchoredPosition = topRect.anchoredPosition;

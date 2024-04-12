@@ -60,7 +60,7 @@ namespace EFFramework
             _procedureManager = ModuleImpSystem.GetModule<IProcedureManager>();
             if (_procedureManager == null)
             {
-                Log.Fatal("Procedure manager is invalid.");
+                EFLogger.Fatal("Procedure manager is invalid.");
             }
         }
 
@@ -72,14 +72,14 @@ namespace EFFramework
                 Type procedureType = Utility.Assembly.GetType(availableProcedureTypeNames[i]);
                 if (procedureType == null)
                 {
-                    Log.Error("Can not find procedure type '{0}'.", availableProcedureTypeNames[i]);
+                    EFLogger.Error("Can not find procedure type '{0}'.", availableProcedureTypeNames[i]);
                     yield break;
                 }
 
                 procedures[i] = (ProcedureBase)Activator.CreateInstance(procedureType);
                 if (procedures[i] == null)
                 {
-                    Log.Error("Can not create procedure instance '{0}'.", availableProcedureTypeNames[i]);
+                    EFLogger.Error("Can not create procedure instance '{0}'.", availableProcedureTypeNames[i]);
                     yield break;
                 }
 
@@ -91,7 +91,7 @@ namespace EFFramework
 
             if (_entranceProcedure == null)
             {
-                Log.Error("Entrance procedure is invalid.");
+                EFLogger.Error("Entrance procedure is invalid.");
                 yield break;
             }
 

@@ -87,7 +87,7 @@ namespace AppMain
         /// <param name="type"></param>
         protected virtual void DownLoad_Complete_Action(int type)
         {
-            Log.Info("DownLoad_Complete");
+            EFLogger.Info("DownLoad_Complete");
         }
 
         /// <summary>

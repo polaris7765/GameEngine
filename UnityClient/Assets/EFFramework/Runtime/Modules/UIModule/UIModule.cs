@@ -48,7 +48,7 @@ namespace EFFramework
             RootModule rootModule = ModuleSystem.GetModule<RootModule>();
             if (rootModule == null)
             {
-                Log.Fatal("Base component is invalid.");
+                EFLogger.Fatal("Base component is invalid.");
                 return;
             }
 
@@ -118,7 +118,7 @@ namespace EFFramework
             CanvasScaler scaler = UIRootStatic.GetComponentInParent<CanvasScaler>();
             if (scaler == null)
             {
-                Log.Error($"Not found {nameof(CanvasScaler)} !");
+                EFLogger.Error($"Not found {nameof(CanvasScaler)} !");
                 return;
             }
 

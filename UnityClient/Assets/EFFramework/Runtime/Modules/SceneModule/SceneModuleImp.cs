@@ -60,7 +60,7 @@ namespace EFFramework
             {
                 if (_subScenes.TryGetValue(location, out SceneHandle subScene))
                 {
-                    Log.Warning($"Could not load subScene while already loaded. Scene: {location}");
+                    EFLogger.Warning($"Could not load subScene while already loaded. Scene: {location}");
                     return subScene;
                 }
                 subScene = YooAssets.LoadSceneAsync(location, sceneMode, suspendLoad, (uint)priority);
@@ -82,7 +82,7 @@ namespace EFFramework
             {
                 if (_currentMainScene is { IsDone: false })
                 {
-                    Log.Warning($"Could not load MainScene while loading. CurrentMainScene: {_currentMainSceneName}.");
+                    EFLogger.Warning($"Could not load MainScene while loading. CurrentMainScene: {_currentMainSceneName}.");
                     return null;
                 }
                 
@@ -141,7 +141,7 @@ namespace EFFramework
             {
                 return subScene.ActivateScene();
             }
-            Log.Warning($"IsMainScene invalid location:{location}");
+            EFLogger.Warning($"IsMainScene invalid location:{location}");
             return false;
         }
 
@@ -165,7 +165,7 @@ namespace EFFramework
             {
                 return subScene.UnSuspend();
             }
-            Log.Warning($"IsMainScene invalid location:{location}");
+            EFLogger.Warning($"IsMainScene invalid location:{location}");
             return false;
         }
         
@@ -189,7 +189,7 @@ namespace EFFramework
             {
                 return subScene.IsMainScene();
             }
-            Log.Warning($"IsMainScene invalid location:{location}");
+            EFLogger.Warning($"IsMainScene invalid location:{location}");
             return false;
         }
         
@@ -205,13 +205,13 @@ namespace EFFramework
             {
                 if (subScene.SceneObject == default)
                 {
-                    Log.Error($"Could not unload Scene while not loaded. Scene: {location}");
+                    EFLogger.Error($"Could not unload Scene while not loaded. Scene: {location}");
                     return null;
                 }
                 _subScenes.Remove(location);
                 return subScene.UnloadAsync();
             }
-            Log.Warning($"UnloadAsync invalid location:{location}");
+            EFLogger.Warning($"UnloadAsync invalid location:{location}");
             return null;
         }
 

@@ -154,7 +154,7 @@ namespace EFFramework
             }
             else
             {
-                Log.Error($"Here is no channel to play audio {path}");
+                EFLogger.Error($"Here is no channel to play audio {path}");
                 return null;
             }
         }

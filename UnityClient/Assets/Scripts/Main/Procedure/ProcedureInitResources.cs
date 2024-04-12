@@ -40,7 +40,7 @@ namespace AppMain
         {
             await UniTask.Delay(TimeSpan.FromSeconds(1f));
             m_InitResourcesComplete = true;
-            Log.Info("Init resources complete.");
+            EFLogger.Info("Init resources complete.");
         }
     }
 }

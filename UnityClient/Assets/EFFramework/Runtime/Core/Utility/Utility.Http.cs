@@ -90,7 +90,7 @@ namespace EFFramework
                     var (isCanceled, _) = await unityWebRequest.SendWebRequest().WithCancellation(cts.Token).SuppressCancellationThrow();
                     if (isCanceled)
                     {
-                        Log.Warning($"HttpPost {unityWebRequest.url} be canceled!");
+                        EFLogger.Warning($"HttpPost {unityWebRequest.url} be canceled!");
                         unityWebRequest.Dispose();
                         return string.Empty;
                     }
@@ -99,7 +99,7 @@ namespace EFFramework
                 {
                     if (ex.CancellationToken == cts.Token)
                     {
-                        Log.Warning("HttpPost Timeout");
+                        EFLogger.Warning("HttpPost Timeout");
                         unityWebRequest.Dispose();
                         return string.Empty;
                     }

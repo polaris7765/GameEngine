@@ -68,13 +68,13 @@ namespace AppMain
                     // 编辑器模式。
                     if (playMode == EPlayMode.EditorSimulateMode)
                     {
-                        Log.Info("Editor resource mode detected.");
+                        EFLogger.Info("Editor resource mode detected.");
                         ChangeState<ProcedurePreload>(procedureOwner);
                     }
                     // 单机模式。
                     else if (playMode == EPlayMode.OfflinePlayMode)
                     {
-                        Log.Info("Package resource mode detected.");
+                        EFLogger.Info("Package resource mode detected.");
                         ChangeState<ProcedureInitResources>(procedureOwner);
                     }
                     // 可更新模式。
@@ -83,18 +83,18 @@ namespace AppMain
                         // 打开启动UI。
                         UILoadMgr.Show(UIDefine.UILoadUpdate);
 
-                        Log.Info("Updatable resource mode detected.");
+                        EFLogger.Info("Updatable resource mode detected.");
                         ChangeState<ProcedureUpdateVersion>(procedureOwner);
                     }
                     // 可更新模式。
                     else if (playMode == EPlayMode.WebPlayMode)
                     {
-                        Log.Info("WebPlayMode resource mode detected.");
+                        EFLogger.Info("WebPlayMode resource mode detected.");
                         ChangeState<ProcedurePreload>(procedureOwner);
                     }
                     else
                     {
-                        Log.Error("UnKnow resource mode detected Please check???");
+                        EFLogger.Error("UnKnow resource mode detected Please check???");
                     }
                 }
                 else
@@ -102,7 +102,7 @@ namespace AppMain
                     // 打开启动UI。
                     UILoadMgr.Show(UIDefine.UILoadUpdate);
 
-                    Log.Error($"{initializationOperation.Error}");
+                    EFLogger.Error($"{initializationOperation.Error}");
 
                     // 打开启动UI。
                     UILoadMgr.Show(UIDefine.UILoadUpdate, $"资源初始化失败！");
@@ -125,7 +125,7 @@ namespace AppMain
             // 打开启动UI。
             UILoadMgr.Show(UIDefine.UILoadUpdate);
 
-            Log.Error($"{message}");
+            EFLogger.Error($"{message}");
 
             // 打开启动UI。
             UILoadMgr.Show(UIDefine.UILoadUpdate, $"资源初始化失败！");
@@ -156,11 +156,11 @@ namespace AppMain
 
             if (string.IsNullOrEmpty(checkVersionUrl))
             {
-                Log.Error("LoadMgr.RequestVersion, remote url is empty or null");
+                EFLogger.Error("LoadMgr.RequestVersion, remote url is empty or null");
                 return null;
             }
 
-            Log.Info("RequestUpdateData, proxy:" + checkVersionUrl);
+            EFLogger.Info("RequestUpdateData, proxy:" + checkVersionUrl);
             try
             {
                 var updateDataStr = await Utility.Http.Get(checkVersionUrl);
@@ -173,7 +173,7 @@ namespace AppMain
                 UILoadTip.ShowMessageBox("请求配置数据失败！点击确认重试", MessageShowType.TwoButton,
                     LoadStyle.StyleEnum.Style_Retry
                     , () => { InitPackage(_procedureOwner).Forget(); }, Application.Quit);
-                Log.Warning(e);
+                EFLogger.Warning(e);
                 return null;
             }
         }

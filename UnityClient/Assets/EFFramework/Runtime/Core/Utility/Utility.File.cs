@@ -39,7 +39,7 @@ namespace EFFramework
                         }
                         else
                         {
-                            Log.Error("文件夹不存在 Path=" + dir);
+                            EFLogger.Error("文件夹不存在 Path=" + dir);
                             return false;
                         }
                     }
@@ -68,7 +68,7 @@ namespace EFFramework
 #if UNITY_EDITOR
                             EditorUtility.DisplayDialog("Tips", "文件夹不存在", "CANCEL");
 #endif
-                            Log.Error("文件夹不存在 Path=" + dir);
+                            EFLogger.Error("文件夹不存在 Path=" + dir);
                             return false;
                         }
                     }
@@ -121,7 +121,7 @@ namespace EFFramework
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("to md5 fail,error:" + ex.Message);
+                    EFLogger.Error("to md5 fail,error:" + ex.Message);
                     return "Error";
                 }
             }

@@ -51,7 +51,7 @@ namespace AppMain
                 }
                 catch(System.Exception exception)
                 {
-                    Log.Error("Init language error, reason {0}",exception.ToString());
+                    EFLogger.Error("Init language error, reason {0}",exception.ToString());
                 }
             }
             
@@ -67,7 +67,7 @@ namespace AppMain
             }
             
             AppModule.Localization.Language = language;
-            Log.Info("Init language settings complete, current language is '{0}'.", language.ToString());
+            EFLogger.Info("Init language settings complete, current language is '{0}'.", language.ToString());
         }
 
         private void InitSoundSettings()
@@ -78,7 +78,7 @@ namespace AppMain
             AppModule.Audio.SoundVolume = AppModule.Setting.GetFloat(Constant.Setting.SoundVolume, 1f);
             AppModule.Audio.UISoundEnable = !AppModule.Setting.GetBool(Constant.Setting.UISoundMuted, false);
             AppModule.Audio.UISoundVolume = AppModule.Setting.GetFloat(Constant.Setting.UISoundVolume, 1f);
-            Log.Info("Init sound settings complete.");
+            EFLogger.Info("Init sound settings complete.");
         }
     }
 }

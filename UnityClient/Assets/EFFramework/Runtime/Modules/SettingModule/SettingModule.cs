@@ -39,14 +39,14 @@ namespace EFFramework
             m_SettingManager = ModuleImpSystem.GetModule<ISettingManager>();
             if (m_SettingManager == null)
             {
-                Log.Fatal("Setting manager is invalid.");
+                EFLogger.Fatal("Setting manager is invalid.");
                 return;
             }
 
             SettingHelperBase settingHelper = Helper.CreateHelper(m_SettingHelperTypeName, m_CustomSettingHelper);
             if (settingHelper == null)
             {
-                Log.Error("Can not create setting helper.");
+                EFLogger.Error("Can not create setting helper.");
                 return;
             }
 
@@ -62,7 +62,7 @@ namespace EFFramework
         {
             if (!m_SettingManager.Load())
             {
-                Log.Error("Load settings failure.");
+                EFLogger.Error("Load settings failure.");
             }
         }
 

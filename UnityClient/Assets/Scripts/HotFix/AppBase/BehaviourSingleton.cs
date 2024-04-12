@@ -19,7 +19,7 @@ namespace EFFramework
                 if (null == _instance)
                 {
                     _instance = new T();
-                    Log.Assert(_instance != null);
+                    EFLogger.Assert(_instance != null);
                     _instance.Awake();
                     RegSingleton(_instance);
                 }
@@ -153,7 +153,7 @@ namespace EFFramework
         /// <param name="inst">单例实例。</param>
         internal void RegSingleton(BaseBehaviourSingleton inst)
         {
-            Log.Assert(!_listInst.Contains(inst));
+            EFLogger.Assert(!_listInst.Contains(inst));
             _listInst.Add(inst);
             _listStart.Add(inst);
             if (HadAttribute<UpdateAttribute>(inst.GetType()))
@@ -176,11 +176,11 @@ namespace EFFramework
         {
             if (inst == null)
             {
-                Log.Error($"BaseBehaviourSingleton Is Null");
+                EFLogger.Error($"BaseBehaviourSingleton Is Null");
                 return;
             }
 
-            Log.Assert(_listInst.Contains(inst));
+            EFLogger.Assert(_listInst.Contains(inst));
             if (_listInst.Contains(inst))
             {
                 _listInst.Remove(inst);
@@ -215,7 +215,7 @@ namespace EFFramework
                 for (int i = 0; i < count; i++)
                 {
                     var inst = listStart[i];
-                    Log.Assert(!inst.IsStart);
+                    EFLogger.Assert(!inst.IsStart);
 
                     inst.IsStart = true;
                     inst.Start();
