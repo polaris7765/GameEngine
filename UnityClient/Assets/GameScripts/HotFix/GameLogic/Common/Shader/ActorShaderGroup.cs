@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TEngine
+namespace EFFramework
 {
     /// <summary>
     /// 封装一个角色可能用到的各种shader场景。

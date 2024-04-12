@@ -1,0 +1,23 @@
+{
+  "name": "com.ef",
+  "displayName": "EFFramework",
+  "version": "4.0.0",
+  "unity": "2021.3",
+  "description": "A Unity development framework.",
+  "licensesUrl": "",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "EFFramework",
+    "Framework",
+    "unity-framework"
+  ],
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  }
+}

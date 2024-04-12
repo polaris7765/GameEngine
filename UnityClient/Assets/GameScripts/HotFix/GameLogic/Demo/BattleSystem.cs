@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using Cysharp.Threading.Tasks;
 using GameLogic;
-using TEngine;
+using EFFramework;
 using UnityEngine;
-using AudioType = TEngine.AudioType;
+using AudioType = EFFramework.AudioType;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 

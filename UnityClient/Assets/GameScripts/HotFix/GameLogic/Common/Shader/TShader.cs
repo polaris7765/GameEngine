@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace TEngine
+namespace EFFramework
 {
     /// <summary>
     /// TShader scripts used for all rendering.

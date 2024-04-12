@@ -1,7 +1,7 @@
 ﻿using GameBase;
 using UnityEngine;
 
-namespace TEngine
+namespace EFFramework
 {
     enum ActorShaderGroupType
     {

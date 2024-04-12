@@ -1,7 +1,7 @@
-﻿namespace TEngine
+﻿namespace EFFramework
 {
     /// <summary>
-    /// 基础LogicSys,生命周期由TEngine实现，推荐给系统实现，
+    /// 基础LogicSys,生命周期由EFFramework实现，推荐给系统实现，
     /// 减少多余的Mono，保持系统层面只有一个Update。
     /// 用主Mono来驱动LogicSys的生命周期。
     /// </summary>

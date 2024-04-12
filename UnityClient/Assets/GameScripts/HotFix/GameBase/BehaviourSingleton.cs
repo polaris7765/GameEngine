@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TEngine
+namespace EFFramework
 {
     /// <summary>
     /// 通过LogicSys来驱动且具备Unity完整生命周期的单例（不继承MonoBehaviour）。

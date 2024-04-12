@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using ProcedureOwner = TEngine.IFsm<TEngine.IProcedureManager>;
+using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
 namespace GameMain
 {

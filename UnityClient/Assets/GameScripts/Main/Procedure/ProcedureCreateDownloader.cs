@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using TEngine;
+using EFFramework;
 using UnityEngine;
 using UnityEngine.Networking;
 using YooAsset;
-using ProcedureOwner = TEngine.IFsm<TEngine.IProcedureManager>;
-using Utility = TEngine.Utility;
+using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
+using Utility = EFFramework.Utility;
 
 namespace GameMain
 {

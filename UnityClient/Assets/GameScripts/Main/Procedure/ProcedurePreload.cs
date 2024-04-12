@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using TEngine;
+using EFFramework;
 using UnityEngine;
 using YooAsset;
-using ProcedureOwner = TEngine.IFsm<TEngine.IProcedureManager>;
+using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
 namespace GameMain
 {

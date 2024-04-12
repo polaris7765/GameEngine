@@ -1,6 +1,6 @@
 ﻿namespace GameMain
 {
-    public abstract class ProcedureBase : TEngine.ProcedureBase
+    public abstract class ProcedureBase : EFFramework.ProcedureBase
     {
         /// <summary>
         /// 获取流程是否使用原生对话框

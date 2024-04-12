@@ -1,5 +1,5 @@
-﻿using TEngine;
-using ProcedureOwner = TEngine.IFsm<TEngine.IProcedureManager>;
+﻿using EFFramework;
+using ProcedureOwner = EFFramework.IFsm<EFFramework.IProcedureManager>;
 
 namespace GameMain
 {
