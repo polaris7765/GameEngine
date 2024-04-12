@@ -3,7 +3,7 @@
 Class Name:     EventInterfaceGenerate.cs
 Type:           Editor, Generator, Util, Static
 Definition:
-                用法，在目录"Assets/GameScripts/HotFix/AppLogic/Event/Interface/"下分组照示例声明Interface 模块待抛出事件的接口。编译后自动生成接口实现抛出的脚本。
+                用法，在目录"Assets/Scripts/HotFix/AppLogic/Event/Interface/"下分组照示例声明Interface 模块待抛出事件的接口。编译后自动生成接口实现抛出的脚本。
 Example:
                 
                 旧版抛出事件方式：  GameEvent.Send(RuntimeId.ToRuntimeId("OnMainPlayerCurrencyChange"),CurrencyType.Gold,oldVal,newVal);
@@ -30,7 +30,7 @@ public static class EventInterfaceGenerate
     public static string NameSpace = @"AppLogic";
     
         
-    public const string EventInterfacePath = "Assets/GameScripts/HotFix/AppLogic/Event/Interface/";
+    public const string EventInterfacePath = "Assets/Scripts/HotFix/AppLogic/Event/Interface/";
 
     public static bool BOpenAutoGenerate = false;
     
@@ -106,7 +106,7 @@ public static class EventInterfaceGenerate
     {
         string interfaceName = interfaceType.Name;
         string className = $"{interfaceName}_Gen";
-        string codePath = $"{Application.dataPath}/GameScripts/HotFix/AppLogic/Event/Gen/{eventInterfaceAttribute.EventGroup}";
+        string codePath = $"{Application.dataPath}/Scripts/HotFix/AppLogic/Event/Gen/{eventInterfaceAttribute.EventGroup}";
 
         if (!Directory.Exists(codePath))
         {
