@@ -44,7 +44,7 @@ public static class BuildDLLCommand
     }
     
     //[MenuItem("HybridCLR/Build/BuildAssets And CopyTo AssemblyTextAssetPath")]
-    [MenuItem("HybridCLR/BuildDlls _F5")]
+    [MenuItem("HybridCLR/BuildAndCopyDlls _F5")]
     public static void BuildAndCopyDlls()
     {
 #if ENABLE_HYBRIDCLR
